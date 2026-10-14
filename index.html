@@ -1,16 +1,133 @@
 <!doctype html>
-<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Small useful things</title>
-<style>body{font:17px/1.5 Georgia,serif;max-width:38rem;margin:4rem auto;padding:0 1.2rem;color:#222;background:#fbfaf7}h1{font-weight:normal;font-size:1.6rem}h2{font-weight:normal;font-size:1.25rem;margin-top:2.2rem}li{margin:.35rem 0}a{color:#7a2e12}</style></head>
-<body><h1>Small useful things</h1><ul id="list">
-<li><a href="/tax-week/">UK tax week calculator</a>: what tax week and tax month it is, PAYE deadlines, week 53, payroll calendar</li>
-<li><a href="https://addons.mozilla.org/en-US/firefox/addon/sqft-price-notes/">SqFt Price &amp; Notes</a>: a Firefox add-on showing price per square foot on UK property listings</li>
-<li><a href="https://addons.mozilla.org/en-US/firefox/addon/sold-price-stats/">Sold Price Stats for eBay</a>: a Firefox add-on showing the median, typical range and sales per week on eBay sold searches</li>
-</ul><h2>Printables</h2><ul id="shop">
-<li><a href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir">What Carers Can Claim 2026 to 2027</a>: a plain UK guide and workbook (£3)</li>
-<li><a href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft">Debt Payoff Planner</a>: print-at-home planner (£4)</li>
-<li><a href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl">Resale Profit Tracker</a>: for Vinted, eBay and Depop sellers (£4)</li>
-<li><a href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg">Large Print Sudoku</a>: 60 puzzles with answers (£2)</li>
-<li><a href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj">Your Family's Own Christmas Word Search</a>: made to order with your family’s names, large print (£12)</li>
-</ul><p><a href="https://6149728987361.gumroad.com" data-goatcounter-click="shop-all">All printables</a></p><script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body></html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Small useful things: printables and free tools</title>
+<link rel="canonical" href="https://darko893.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2318233f'/%3E%3Crect x='9' y='7' width='14' height='18' fill='%23c8a368'/%3E%3Crect x='5' y='25' width='22' height='3' fill='%23e4e7e1'/%3E%3C/svg%3E">
+<meta property="og:title" content="Small useful things">
+<meta property="og:description" content="Printable puzzle books, planners and plain guides, plus free tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://darko893.github.io/">
+<link rel="preload" href="/fonts/bsd.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="description" content="Printable puzzle books, planners and plain guides, plus free tools for UK payroll dates and eBay prices. Buy once, download straight away.">
+<link rel="preload" href="/fonts/bsd.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Big Shoulders Display";src:url(/fonts/bsd.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/fonts/atk-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Atkinson Hyperlegible";src:url(/fonts/atk-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{--wall:#e4e7e1;--wall-dark:#d6dad2;--ink:#18233f;--soft:#4a5468;--kraft:#c8a368;--kraft-edge:#a8844c;--ledge:#2b2f36;--focus:#e0731f}
+*{box-sizing:border-box}
+html{background:var(--wall)}
+body{margin:0;overflow-x:hidden;color:var(--ink);font:400 1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,sans-serif}
+a{color:var(--ink);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+.wrap{max-width:72rem;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+header{padding:clamp(2.5rem,7vw,5rem) 0 clamp(1.5rem,4vw,2.5rem)}
+h1{font:800 clamp(3.4rem,12vw,8.5rem)/.86 "Big Shoulders Display",Impact,sans-serif;margin:0;letter-spacing:-.01em}
+.lede{max-width:34rem;margin:1.2rem 0 0;font-size:1.15rem;color:var(--soft)}
+h2{font:800 clamp(1.9rem,4.5vw,2.6rem)/1 "Big Shoulders Display",Impact,sans-serif;margin:0 0 .3rem}
+.note{margin:0 0 2rem;color:var(--soft)}
+section{padding:clamp(2rem,5vw,3.5rem) 0}
+.shelf{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:3.4rem 2.2rem;align-items:start}
+.shelf li{display:flex;flex-direction:column;min-width:0}
+.stand{position:relative;display:flex;align-items:flex-end;aspect-ratio:640/906;padding:0 .5rem;margin-bottom:1.15rem}
+.stand::after{content:"";position:absolute;left:-1.15rem;right:-1.15rem;bottom:-.7rem;height:.7rem;background:var(--ledge);box-shadow:0 .55rem .9rem -.3rem rgba(24,35,63,.45)}
+.pic{position:relative;display:block;width:100%}
+.pic img{display:block;width:100%;height:auto;box-shadow:0 1px 0 rgba(0,0,0,.08),0 .9rem 1.4rem -.6rem rgba(24,35,63,.35);transition:transform .25s ease}
+.stand:hover img{transform:translateY(-4px)}
+.tag{position:absolute;top:-.5rem;right:-.65rem;z-index:2;transform:rotate(7deg);transform-origin:12% 50%;
+ font:800 1.45rem/1 "Big Shoulders Display",Impact,sans-serif;color:var(--ink);background:var(--kraft);padding:.45rem .7rem .4rem 1.35rem;
+ clip-path:polygon(.75rem 0,100% 0,100% 100%,.75rem 100%,0 50%);box-shadow:inset 0 0 0 1px var(--kraft-edge)}
+.tag::before{content:"";position:absolute;left:.65rem;top:50%;width:.4rem;height:.4rem;margin-top:-.2rem;border-radius:50%;background:var(--wall);box-shadow:inset 0 0 0 1px var(--kraft-edge)}
+.shelf h3{margin:.7rem 0 .2rem;font-size:1.05rem;line-height:1.3}
+.shelf h3 a{text-decoration:none}
+.shelf h3 a:hover{text-decoration:underline}
+.shelf p{margin:0 0 .55rem;color:var(--soft);font-size:.95rem}
+.shelf .buy{font-weight:700;margin-top:auto}
+.tools{border-top:2px solid var(--ink)}
+.tools ul{list-style:none;margin:0;padding:0}
+.tools li{display:grid;grid-template-columns:minmax(12rem,20rem) 1fr;gap:.3rem 2rem;padding:1.05rem 0;border-bottom:1px solid #b9beb5}
+.tools li a{font-weight:700;font-size:1.12rem}
+.tools li p{margin:0;color:var(--soft)}
+.tools .wait{font-size:.9rem;color:var(--soft)}
+footer{padding:2.5rem 0 3.5rem;color:var(--soft);font-size:.95rem}
+footer p{margin:.3rem 0}
+@media (max-width:64rem){.shelf{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:40rem){
+ .shelf{grid-template-columns:1fr 1fr;gap:2.8rem 1.2rem}
+ .stand{padding:0 .3rem}
+ .stand::after{left:-.6rem;right:-.6rem}
+ .tag{font-size:1.2rem;padding:.36rem .55rem .32rem 1.15rem;right:-.45rem}
+ .shelf h3{font-size:1rem}
+ .shelf p{font-size:.92rem}
+ .tools li{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.stand img{transition:none}.stand:hover img{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Small useful<br>things</h1>
+<p class="lede">Puzzle books, planners and plain guides you print or open at home, and a few free tools. Pay once and the download is yours straight away.</p>
+</header>
+
+<section aria-labelledby="buy">
+<h2 id="buy">On the shelf</h2>
+<p class="note">Each one opens on Gumroad, where you can see inside before you buy.</p>
+<ul class="shelf">
+<li>
+ <a class="stand" href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj"><span class="pic"><span class="tag">£12</span><img src="/img/fhqvj.webp" width="640" height="854" alt="Christmas word search book cover with a family surname hidden in the grid"></span></a>
+ <h3><a href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj">Your Family’s Own Christmas Word Search</a></h3>
+ <p>50 large print puzzles built around your surname, names, pets and in-jokes. Made to order as a PDF to print and give.</p>
+ <a class="buy" href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj">See it on Gumroad</a>
+</li>
+<li>
+ <a class="stand" href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg"><span class="pic"><span class="tag">£2</span><img src="/img/qvumeg.webp" width="640" height="905" alt="Large print sudoku book cover with a puzzle page and pencil"></span></a>
+ <h3><a href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg">Large Print Sudoku</a></h3>
+ <p>60 puzzles, one to a page, with numbers big enough to read without squinting. Answers at the back.</p>
+ <a class="buy" href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg">See it on Gumroad</a>
+</li>
+<li>
+ <a class="stand" href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir"><span class="pic"><span class="tag">£3</span><img src="/img/zpdzir.webp" width="640" height="906" alt="What Carers Can Claim booklet cover with a checklist of payments"></span></a>
+ <h3><a href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir">What Carers Can Claim, 2026 to 2027</a></h3>
+ <p>If you look after someone unpaid, this goes through what you may be owed, how to claim it and the traps to avoid. A4 guide and workbook.</p>
+ <a class="buy" href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir">See it on Gumroad</a>
+</li>
+<li>
+ <a class="stand" href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl"><span class="pic"><span class="tag">£4</span><img src="/img/qjvxvl.webp" width="640" height="854" alt="Resale Profit Tracker open on a phone, showing profit this month"></span></a>
+ <h3><a href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl">Resale Profit Tracker</a></h3>
+ <p>For Vinted, eBay and Depop sellers: your real profit after postage and fees, and which stock has sat too long.</p>
+ <a class="buy" href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl">See it on Gumroad</a>
+</li>
+<li>
+ <a class="stand" href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft"><span class="pic"><span class="tag">£4</span><img src="/img/fkiqft.webp" width="640" height="854" alt="Debt Payoff Planner open on a phone, showing a debt-free date"></span></a>
+ <h3><a href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft">Debt Payoff Planner</a></h3>
+ <p>Type in what you owe, move one slider and see the month you’re debt free. Works offline in your browser.</p>
+ <a class="buy" href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft">See it on Gumroad</a>
+</li>
+</ul>
+<p class="note" style="margin-top:2.6rem">More planners and diaries are in the <a href="https://6149728987361.gumroad.com" data-goatcounter-click="shop-all">full shop</a>.</p>
+</section>
+
+<section class="tools" aria-labelledby="free">
+<h2 id="free" style="margin-top:1.4rem">Free tools</h2>
+<p class="note">No sign-up, no adverts.</p>
+<ul>
+<li><a href="/tax-week/">UK tax week calculator</a><p>Today’s tax week and tax month, PAYE and EPS deadlines, week 53, and a payroll calendar you can download.</p></li>
+<li><a href="https://addons.mozilla.org/en-GB/firefox/addon/sold-price-stats/">Sold Price Stats for eBay</a><p>A Firefox add-on that shows the median, typical range and sales per week on any eBay sold search. <span class="wait">Waiting for Mozilla’s review.</span></p></li>
+<li><a href="https://addons.mozilla.org/en-GB/firefox/addon/sqft-price-notes/">SqFt Price &amp; Notes</a><p>A Firefox add-on that shows price per square foot on UK property listings, with your own notes. <span class="wait">Waiting for Mozilla’s review.</span></p></li>
+</ul>
+</section>
+
+<footer>
+<p>Made in the UK by Daniel Seven.</p>
+<p>Something wrong or missing? <a href="https://github.com/Darko893/darko893.github.io/issues">Tell me here</a>.</p>
+</footer>
+</div>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
