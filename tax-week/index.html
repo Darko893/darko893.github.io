@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tax Week Calculator UK: What Tax Week Is It Today? (2026/27)</title>
+<meta name="description" content="Free UK tax week and tax month calculator. See today's tax week, check any date, the next PAYE and EPS deadlines (moved for weekends and bank holidays), week 53, a 2024/25 to 2029/30 payroll calendar and tested Excel formulas.">
+<link rel="canonical" href="https://darko893.github.io/tax-week/">
+<meta property="og:title" content="UK tax week calculator">
+<meta property="og:description" content="Today's tax week and tax month, any date, PAYE and EPS deadlines, week 53 checker and payroll calendar.">
+<meta property="og:url" content="https://darko893.github.io/tax-week/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b5c4a'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"UK tax week calculator","url":"https://darko893.github.io/tax-week/","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Shows the UK tax week and tax month for any date, PAYE and EPS deadlines adjusted for weekends and England and Wales bank holidays, week 53 checks and payroll calendars."}
+</script>
+<style>
+:root{--bg:#f6f7f5;--card:#fff;--ink:#17201d;--muted:#5b6762;--line:#dfe4e1;--accent:#0b5c4a;--accent-ink:#fff;--soft:#e7f1ed;--warn:#8a4b00;--warn-bg:#fff4e0}
+@media (prefers-color-scheme:dark){:root{--bg:#111614;--card:#1a211e;--ink:#e8eeeb;--muted:#9fb0a8;--line:#2d3833;--accent:#5cc7a6;--accent-ink:#0d1a15;--soft:#1f2e28;--warn:#ffc46b;--warn-bg:#33270f}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main,header,footer{max-width:860px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{font-size:1.6rem;line-height:1.2;margin:0 0 4px}
+h2{font-size:1.2rem;margin:0 0 12px}
+h3{font-size:1rem;margin:16px 0 4px}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.lede{color:var(--muted);margin-bottom:16px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;margin:0 0 16px}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 6px}
+.stat{background:var(--soft);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:2rem;line-height:1.1}
+.stat span{display:block;font-size:.85rem;color:var(--muted)}
+.stat small{display:block;font-size:.85rem;margin-top:4px}
+.today-date{font-weight:600}
+label{font-weight:600;display:block;margin-bottom:4px}
+input,select,button{font:inherit;color:inherit}
+input[type=date],select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);min-height:44px;max-width:100%}
+button{cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:8px 14px;min-height:44px}
+button.ghost{background:transparent;color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-bottom:12px}
+.row>div{min-width:0}
+.result{margin-top:4px}
+.err{color:var(--warn)}
+.note{background:var(--warn-bg);color:var(--ink);border-radius:8px;padding:8px 10px;font-size:.92rem}
+ul.dl{list-style:none;padding:0;margin:0}
+ul.dl li{padding:10px 0;border-top:1px solid var(--line);display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+ul.dl li:first-child{border-top:0}
+ul.dl .when{font-weight:700;white-space:nowrap}
+ul.dl .left{color:var(--muted);font-size:.9rem;white-space:nowrap}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:var(--soft);position:sticky;top:0}
+tr.hl td{background:var(--soft);font-weight:600}
+tr.w53 td{color:var(--warn)}
+.moved{color:var(--warn)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button[aria-pressed=false]{background:transparent;color:var(--accent)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88rem;background:var(--soft);border-radius:6px;padding:2px 5px;word-break:break-all}
+.f{border-top:1px solid var(--line);padding:10px 0}
+.f:first-of-type{border-top:0}
+.f code{display:block;padding:8px;margin:4px 0 6px}
+.f button{min-height:36px;padding:4px 10px;font-size:.9rem}
+details{border-top:1px solid var(--line);padding:10px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:600}
+footer{color:var(--muted);font-size:.88rem;padding-bottom:32px}
+.sr{position:absolute;left:-9999px}
+@media (max-width:560px){h1{font-size:1.35rem}table{font-size:.82rem}th,td{padding:6px}.big{gap:6px}.stat{padding:8px}.stat b{font-size:1.45rem}.stat span,.stat small{font-size:.75rem}}
+@media (max-width:330px){.big{grid-template-columns:1fr}}
+@media print{body{background:#fff;color:#000}section{border:0;padding:0;break-inside:avoid-page}.noprint,#check,#week53,#formulas,#faq,#deadlines,#today,header .lede{display:none}.tablewrap{overflow:visible;border:0}th{position:static}}
+</style>
+</head>
+<body>
+<header>
+<h1>UK tax week calculator</h1>
+<p class="lede">What tax week and tax month it is today, for any date, with PAYE and EPS deadlines, week 53, a payroll calendar and spreadsheet formulas. The UK tax year runs from 6 April to 5 April.</p>
+</header>
+<main>
+
+<section id="today" aria-labelledby="h-today">
+<h2 id="h-today">Today</h2>
+<p class="today-date" id="today-date">Loading…</p>
+<div class="big" id="today-stats"></div>
+<p id="today-extra" class="result"></p>
+<noscript><p class="err">This calculator needs JavaScript. In short: tax week 1 starts on 6 April, each week is 7 days, and tax month 1 runs from 6 April to 5 May.</p></noscript>
+</section>
+
+<section id="check" aria-labelledby="h-check">
+<h2 id="h-check">Check a date</h2>
+<div class="row">
+<div><label for="date">Date</label><input type="date" id="date" min="1900-01-01" max="2199-12-31"></div>
+<button type="button" id="share" class="ghost">Copy link to this date</button>
+</div>
+<div id="check-result" class="result" aria-live="polite"></div>
+</section>
+
+<section id="deadlines" aria-labelledby="h-deadlines">
+<h2 id="h-deadlines">Next PAYE and EPS deadlines</h2>
+<ul class="dl" id="deadline-list"></ul>
+<p class="note" style="margin-top:10px">If the 22nd (or the 19th for a cheque) is a weekend or bank holiday, the payment must reach HMRC by the last working day before it. That does not apply to Faster Payments (online or telephone banking), which can arrive on the day itself. Bank holidays shown are for England and Wales.</p>
+</section>
+
+<section id="week53" aria-labelledby="h-53">
+<h2 id="h-53">Week 53 checker: do I have an extra payday?</h2>
+<div class="row">
+<div><label for="pd">One of your paydays</label><input type="date" id="pd"></div>
+<div><label for="freq">Pay frequency</label><select id="freq"><option value="7">Weekly</option><option value="14">Fortnightly</option><option value="28">Four-weekly</option></select></div>
+<div><label for="pdyear">Tax year</label><select id="pdyear"></select></div>
+</div>
+<div id="pd-result" class="result" aria-live="polite"></div>
+</section>
+
+<section id="calendar" aria-labelledby="h-cal">
+<h2 id="h-cal">Payroll calendar</h2>
+<div class="row noprint">
+<div><label for="calyear">Tax year</label><select id="calyear"></select></div>
+<div class="tabs" role="group" aria-label="Calendar view">
+<button type="button" id="view-month" aria-pressed="true">Tax months</button>
+<button type="button" id="view-week" aria-pressed="false">Tax weeks</button>
+</div>
+<button type="button" id="csv" class="ghost">Download CSV</button>
+<button type="button" id="print" class="ghost">Print</button>
+</div>
+<p id="cal-caption" class="result"></p>
+<div class="tablewrap"><table id="cal-table"></table></div>
+</section>
+
+<section id="formulas" aria-labelledby="h-f">
+<h2 id="h-f">Excel and Google Sheets formulas</h2>
+<p>Put a date in cell <code>A2</code>. The formulas use only functions that Excel, Google Sheets and LibreOffice Calc all have. Each one was recalculated in LibreOffice for every day from 2000 to 2040 and matched this calculator. Format the date results as dates.</p>
+<div id="formula-list"></div>
+<h3>Bank holidays for the WORKDAY formula</h3>
+<p>The PAYE due-date formula needs a range named <code>Holidays</code> holding the England and Wales bank holidays. Paste this list into a column and name the range <code>Holidays</code> (Formulas › Define name in Excel; Data › Named ranges in Sheets).</p>
+<div class="row"><button type="button" id="copy-bh" class="ghost">Copy bank holidays 2024 to 2031</button></div>
+</section>
+
+<section id="faq" aria-labelledby="h-faq">
+<h2 id="h-faq">How tax weeks and tax months work</h2>
+<details open><summary>What is a tax week?</summary>
+<p>The UK tax year starts on 6 April. Tax week 1 is 6 to 12 April, week 2 is 13 to 19 April, and so on in blocks of seven days whatever day of the week 6 April falls on. 52 weeks make 364 days, so one day is left over at the end of the year (5 April), or two days (4 and 5 April) when the tax year contains 29 February. That leftover is <strong>week 53</strong>.</p></details>
+<details><summary>What is a tax month?</summary>
+<p>Tax month 1 runs from 6 April to 5 May, month 2 from 6 May to 5 June, and so on to month 12, 6 March to 5 April. A date on the 1st to the 5th of a calendar month is in the tax month that started on the 6th of the month before.</p></details>
+<details><summary>When is PAYE due?</summary>
+<p>For monthly payers, PAYE and National Insurance for a tax month must reach HMRC by the 22nd of the next month if you pay electronically, or by the 19th if you post a cheque. So the month ending 5 November is due on 22 November. Small employers who expect to pay less than £1,500 a month on average can pay quarterly instead, by 22 July, 22 October, 22 January and 22 April. When the 22nd is a weekend or bank holiday, the money must arrive by the last working day before, unless you pay by Faster Payments.</p></details>
+<details><summary>When is the EPS due?</summary>
+<p>An Employer Payment Summary, used to reclaim statutory pay, claim Employment Allowance or tell HMRC that you paid no one in a tax month, should reach HMRC by the 19th after the tax month ends (for the month ending 5 November, by 19 November) to change what you owe for that month. The final EPS for the year is due by 19 April.</p></details>
+<details><summary>Week 53, 54 and 56: what they mean for payroll</summary>
+<p>If a weekly payday falls in week 53 (5 April, or 4 or 5 April in a leap year), that year has 53 weekly paydays instead of 52. For fortnightly pay the extra 27th payday is reported as <strong>week 54</strong>, and for four-weekly pay the extra 14th payday is <strong>week 56</strong>. HMRC's rule is that the tax on that extra payment is worked out on a non-cumulative basis, using the week 1, week 2 or week 4 free pay. That can leave an employee with a small underpayment at the end of the year. National Insurance is worked out as usual. Monthly payrolls never have a week 53.</p>
+<p>The payday that counts is the contractual payday. If it falls on a weekend or bank holiday and you pay early, HMRC expects you to report the usual payday on the FPS.</p></details>
+<details><summary>Other payroll year-end dates</summary>
+<p>Final FPS on or before the last payday of the year (the final EPS by 19 April), P60s to employees by 31 May, P11D and P11D(b) by 6 July, and Class 1A National Insurance by 22 July if paid electronically (19 July by cheque).</p></details>
+<details><summary>Does this cover Scotland and Northern Ireland?</summary>
+<p>Tax weeks, tax months and the deadlines are the same across the UK. The working-day adjustments here use England and Wales bank holidays. If you bank in Scotland or Northern Ireland, check whether your own bank holidays move a deadline.</p></details>
+</section>
+</main>
+<footer>
+<p>Free to use. Not affiliated with HMRC. This is a guide only: check deadlines on <a href="https://www.gov.uk/pay-paye-tax" rel="noopener">GOV.UK: Pay employers' PAYE</a> and <a href="https://www.gov.uk/bank-holidays" rel="noopener">GOV.UK: bank holidays</a>. Bank holidays from 2028 onwards follow the usual rules. Any extra one-off holiday announced later is not included until this page is updated. Nothing you type leaves your browser.</p>
+<p>Spotted a mistake? <a href="https://github.com/Darko893/darko893.github.io/issues" rel="noopener">Report it here</a>.</p>
+</footer>
+<script src="taxweek.js"></script>
+<script src="app.js"></script>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

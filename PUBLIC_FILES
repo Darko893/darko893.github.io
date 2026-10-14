@@ -1,3 +1,7 @@
 index.html
 .nojekyll
 PUBLIC_FILES
+tax-week/index.html
+tax-week/taxweek.js
+tax-week/app.js
+tax-week/sitemap.xml
