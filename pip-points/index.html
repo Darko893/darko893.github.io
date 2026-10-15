@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PIP Points Calculator 2026/27: Check Your Score (Free, UK)</title>
+<meta name="description" content="Free PIP points calculator using the official descriptors. Pick what applies for each of the 12 activities and see your daily living and mobility points, the rate they point to, and this year's weekly amounts. No sign-up.">
+<link rel="canonical" href="https://darko893.github.io/pip-points/">
+<meta property="og:title" content="PIP points calculator (UK, 2026/27)">
+<meta property="og:description" content="Check your PIP score against the official descriptors: daily living and mobility points, standard or enhanced rate, and weekly amounts.">
+<meta property="og:url" content="https://darko893.github.io/pip-points/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23353a7a'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-size='12' font-weight='700' fill='%23fbe7b2' text-anchor='middle'%3EPIP%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/atk-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"PIP points calculator","url":"https://darko893.github.io/pip-points/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Score yourself against the Personal Independence Payment descriptors and see which rate the points point to."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How many points do you need for PIP?","acceptedAnswer":{"@type":"Answer","text":"Each part is scored separately. 8 to 11 points in the daily living activities gives the standard rate of the daily living part, and 12 or more gives the enhanced rate. The mobility part works the same way: 8 to 11 points for standard, 12 or more for enhanced."}},
+{"@type":"Question","name":"Can you add points from different descriptors in the same activity?","acceptedAnswer":{"@type":"Answer","text":"No. In each activity only one descriptor counts: the highest-scoring one that applies to you. Points are then added up across the activities."}},
+{"@type":"Question","name":"How much is PIP a week in 2026/27?","acceptedAnswer":{"@type":"Answer","text":"Daily living: £76.70 standard, £114.60 enhanced. Mobility: £30.30 standard, £80.00 enhanced. PIP is paid every four weeks, is tax free and does not depend on income or savings."}},
+{"@type":"Question","name":"What does 'reliably' mean in a PIP assessment?","acceptedAnswer":{"@type":"Answer","text":"A descriptor applies if it applies on more than half of days, and you can only count yourself as able to do something if you can do it safely, to an acceptable standard, as often as you reasonably need to, and in a reasonable time (no more than twice as long as someone without your condition)."}}
+]}]}
+</script>
+<style>
+@font-face{font-family:Atk;src:url(/fonts/atk-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Atk;src:url(/fonts/atk-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{--bg:#f7f3ea;--card:#fffdf8;--ink:#1d1f33;--muted:#5d6078;--line:#e4ddcc;--accent:#353a7a;--accent-ink:#fff;--soft:#ecebf7;--gold:#f2c14e;--gold-soft:#fbefcb;--ok:#1f6b4f;--ok-soft:#dff0e7;--warn:#8a4b00;--shadow:0 1px 2px rgba(29,31,51,.06),0 6px 18px rgba(29,31,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#13142a;--card:#1c1e38;--ink:#ecebf5;--muted:#a6a8c4;--line:#2f3256;--accent:#aab0ff;--accent-ink:#13142a;--soft:#262a52;--gold:#f2c14e;--gold-soft:#3a3220;--ok:#7fd8ad;--ok-soft:#18362a;--warn:#ffc46b;--shadow:none}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Atk,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding-bottom:96px}
+header,main,footer{max-width:780px;margin:0 auto;padding:0 16px}
+header{padding-top:28px;padding-bottom:6px}
+.kicker{display:inline-block;background:var(--gold-soft);color:var(--ink);border-radius:999px;padding:2px 12px;font-size:.85rem;font-weight:700;letter-spacing:.02em;margin-bottom:10px}
+h1{font-size:2rem;line-height:1.15;margin:0 0 10px;letter-spacing:-.01em}
+h2{font-size:1.25rem;line-height:1.25;margin:0 0 10px}
+p{margin:0 0 10px}
+a{color:var(--accent);text-underline-offset:2px}
+.lede{color:var(--muted);font-size:1.05rem;max-width:62ch}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 22px;padding:0;list-style:none;counter-reset:s}
+.how li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.92rem;counter-increment:s}
+.how li::before{content:counter(s);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.82rem;margin-bottom:6px}
+.how li b{display:block}
+.part{margin:26px 0 8px;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.part h2{margin:0}
+.part .pts{font-weight:700;color:var(--accent)}
+details.act{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 10px;box-shadow:var(--shadow)}
+details.act>summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;gap:12px;align-items:center;min-height:56px}
+details.act>summary::-webkit-details-marker{display:none}
+.num{flex:none;width:30px;height:30px;border-radius:9px;background:var(--soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.title{flex:1;min-width:0}
+.title b{display:block;line-height:1.25}
+.title small{display:block;color:var(--muted);font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{flex:none;min-width:44px;text-align:center;border-radius:999px;padding:3px 10px;font-weight:700;font-size:.9rem;background:var(--soft);color:var(--muted)}
+.chip.on{background:var(--gold);color:#1d1f33}
+.chev{flex:none;width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin:0 4px 4px}
+details.act[open] .chev{transform:rotate(225deg);margin-bottom:-4px}
+.opts{padding:0 10px 12px;display:grid;gap:6px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--bg)}
+.opt:hover{border-color:var(--accent)}
+.opt input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--accent)}
+.opt span{flex:1;min-width:0;font-size:.95rem}
+.opt em{flex:none;font-style:normal;font-weight:700;color:var(--muted);font-size:.9rem;white-space:nowrap}
+.opt:has(input:checked){border-color:var(--accent);background:var(--soft)}
+.opt:has(input:checked) em{color:var(--accent)}
+.result{background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:18px 16px;margin:26px 0 16px;box-shadow:var(--shadow)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 12px}
+.col{background:var(--soft);border-radius:12px;padding:12px}
+.col span{display:block;font-size:.85rem;color:var(--muted)}
+.col b{display:block;font-size:2.1rem;line-height:1.1}
+.col .rate{font-style:normal;display:inline-block;margin-top:6px;font-weight:700;border-radius:999px;padding:2px 10px;font-size:.85rem;background:var(--line);color:var(--ink)}
+.col .rate.std{background:var(--gold-soft)}
+.col .rate.enh{background:var(--ok-soft);color:var(--ok)}
+.col small{display:block;margin-top:6px;font-size:.85rem;color:var(--muted)}
+.total{font-size:1.05rem}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+button{font:inherit;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:9px 16px;min-height:44px;font-weight:700}
+button.ghost{background:transparent;color:var(--accent)}
+.next{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.next a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+.next a:hover{border-color:var(--accent)}
+.next b{display:block;color:var(--accent)}
+.next p{font-size:.92rem;color:var(--muted);margin:4px 0 0}
+section.info{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 14px}
+section.info details{border-top:1px solid var(--line);padding:10px 0}
+section.info details:first-of-type{border-top:0}
+section.info summary{cursor:pointer;font-weight:700}
+section.info details p{margin:8px 0 0}
+dl{margin:0}dt{font-weight:700;margin-top:8px}dd{margin:0;color:var(--muted)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--accent);color:var(--accent-ink);z-index:5;transform:translateY(0);transition:transform .2s}
+.bar.hide{transform:translateY(110%)}
+.bar div{max-width:780px;margin:0 auto;padding:10px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;font-size:.95rem}
+.bar b{font-size:1.1rem}
+.bar a{color:inherit;font-weight:700;white-space:nowrap}
+.updated{font-size:.85rem;color:var(--muted)}
+footer{color:var(--muted);font-size:.88rem;padding-top:8px;padding-bottom:24px}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:10px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:6}
+.toast.on{opacity:1}
+@media (max-width:600px){h1{font-size:1.6rem}.how{grid-template-columns:1fr;gap:6px}.how li{display:flex;gap:10px;align-items:flex-start}.how li::before{flex:none;margin:0}.next{grid-template-columns:1fr}.col b{font-size:1.7rem}}
+@media (max-width:340px){.cols{grid-template-columns:1fr}}
+@media print{body{background:#fff;color:#000;padding:0}.bar,.btns,.next,.how,section.info,.toast,header .lede{display:none}details.act{box-shadow:none;break-inside:avoid}.opt:not(:has(input:checked)){display:none}}
+</style>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header>
+<span class="kicker">Free · 2026/27 rates</span>
+<h1>PIP points calculator</h1>
+<p class="lede">Go through the 12 activities the DWP scores, tick the line that fits you on most days, and see your points for each part of Personal Independence Payment and the rate they point to. Nothing you tick leaves this page.</p>
+<ol class="how">
+<li><div><b>Think of a typical week</b>Pick what is true on more than half of days, not your best day.</div></li>
+<li><div><b>One line per activity</b>Only the highest line that fits counts. Leave it closed if none apply.</div></li>
+<li><div><b>Read your result</b>8 points gets the standard rate, 12 the enhanced, for each part.</div></li>
+</ol>
+</header>
+
+<main>
+<div class="part"><h2>Daily living</h2><span class="pts" id="dlHead">0 points</span></div>
+<div id="daily"></div>
+<div class="part"><h2>Mobility</h2><span class="pts" id="mobHead">0 points</span></div>
+<div id="mob"></div>
+
+<section class="result" id="result" aria-live="polite">
+<h2>Your result</h2>
+<div class="cols">
+<div class="col"><span>Daily living</span><b id="dlPts">0</b><em class="rate" id="dlRate">Not enough yet</em><small id="dlNeed"></small></div>
+<div class="col"><span>Mobility</span><b id="mobPts">0</b><em class="rate" id="mobRate">Not enough yet</em><small id="mobNeed"></small></div>
+</div>
+<p class="total" id="money">Tick the lines that fit you to see what your points add up to.</p>
+<p class="updated">Rates from April 2026. PIP is tax free and does not depend on your income or savings. This is a guide: the DWP decides, using your form, your evidence and the assessment.</p>
+<div class="btns">
+<button id="copy" type="button">Copy my answers</button>
+<button id="print" class="ghost" type="button">Print</button>
+<button id="reset" class="ghost" type="button">Start again</button>
+</div>
+</section>
+
+<div class="next">
+<a href="https://6149728987361.gumroad.com/l/zdkzrd"><b>Build the evidence: PIP diary, £3</b><p>100 printable pages to write down how each day really goes, so your form and assessment show the bad days too.</p></a>
+<a href="https://6149728987361.gumroad.com/l/kvzrc"><b>Scored fewer points than you should? Appeal organiser, £5</b><p>Keeps a mandatory reconsideration and tribunal in one place: deadlines, letters, evidence, what to say.</p></a>
+</div>
+
+<section class="info" aria-labelledby="h-faq">
+<h2 id="h-faq">How PIP points work</h2>
+<details open><summary>How many points do you need?</summary><p>The two parts are scored separately. In the daily living activities, 8 to 11 points gets the standard rate and 12 or more the enhanced rate. Mobility works the same way. You can get one part, both, or neither, and points from one part never count towards the other.</p></details>
+<details><summary>Can I add two lines from the same activity?</summary><p>No. In each activity only one line counts: the highest-scoring one that applies to you. If two lines apply on different days, the DWP takes the one that applies on more than half of days; if two lines each apply on more than half of days, the higher-scoring one. If no single line does but two together cover more than half, it takes the one that applies on the most days.</p></details>
+<details><summary>What does "reliably" mean?</summary><p>You only count as able to do something if you can do it safely, to an acceptable standard, as often as you reasonably need to, and in a reasonable time, which is no more than twice as long as someone without your condition would take. If you can manage it once but are then exhausted or in pain, you can't do it reliably.</p></details>
+<details><summary>How much is PIP in 2026/27?</summary><p>A week: daily living £76.70 standard or £114.60 enhanced; mobility £30.30 standard or £80.00 enhanced. It is paid every four weeks.</p></details>
+<details><summary>Is PIP changing?</summary><p>The scoring on this page is the law as it stands in October 2026. The plan to require at least 4 points in one daily living activity was dropped in 2025, and a government review of the assessment (the Timms review) is due to report in autumn 2026. Any change would need new rules first.</p></details>
+<details><summary>Does this work in Scotland or Northern Ireland?</summary><p>Northern Ireland's PIP uses the same activities and points. In Scotland, PIP has been replaced by Adult Disability Payment from Social Security Scotland, which also scores the same 12 activities with the same 8 and 12 point thresholds.</p></details>
+</section>
+
+<section class="info" aria-labelledby="h-words">
+<h2 id="h-words">The words the descriptors use</h2>
+<dl>
+<dt>Aid or appliance</dt><dd>Anything that helps you manage, from a perching stool or grab rail to a walking stick, a long-handled sponge or adapted cutlery. It counts if you would reasonably be expected to use one, even if you don't have it yet.</dd>
+<dt>Prompting</dt><dd>Someone reminding, encouraging or explaining so you can do it.</dd>
+<dt>Supervision</dt><dd>Someone staying with you the whole time to keep you safe.</dd>
+<dt>Assistance</dt><dd>Someone physically helping with part of the task, not just reminding you.</dd>
+<dt>Simple meal</dt><dd>A cooked one-course meal for one from fresh ingredients.</dd>
+<dt>Therapeutic source</dt><dd>Feeding through a tube or pump, rather than eating by mouth.</dd>
+</dl>
+</section>
+</main>
+
+<footer>
+<p>The activities and points are copied from Schedule 1 of the Social Security (Personal Independence Payment) Regulations 2013, as amended (<a href="https://www.legislation.gov.uk/uksi/2013/377/schedule/1">legislation.gov.uk</a>), and the rates from <a href="https://www.gov.uk/pip/how-much-youll-get">GOV.UK</a>. Contains public sector information licensed under the Open Government Licence v3.0.</p>
+<p>This page is not from the DWP and is not advice. For free one-to-one help, try Citizens Advice or a local welfare rights service.</p>
+<p><a href="/">Small useful things</a>: printables and free tools, made in the UK. Something wrong? <a href="https://github.com/Darko893/darko893.github.io/issues">Tell me here</a>.</p>
+</footer>
+
+<div class="bar hide" id="bar" aria-hidden="true"><div><span>Daily living <b id="bDl">0</b> · Mobility <b id="bMob">0</b></span><a href="#result">See result ↓</a></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const DAILY = [
+ ["Preparing food", [
+  ["Can prepare and cook a simple meal unaided.",0],
+  ["Needs to use an aid or appliance to be able to either prepare or cook a simple meal.",2],
+  ["Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave.",2],
+  ["Needs prompting to be able to either prepare or cook a simple meal.",2],
+  ["Needs supervision or assistance to either prepare or cook a simple meal.",4],
+  ["Cannot prepare and cook food.",8]]],
+ ["Taking nutrition", [
+  ["Can take nutrition unaided.",0],
+  ["Needs to use an aid or appliance to be able to take nutrition, or supervision to be able to take nutrition, or assistance to be able to cut up food.",2],
+  ["Needs a therapeutic source to be able to take nutrition.",2],
+  ["Needs prompting to be able to take nutrition.",4],
+  ["Needs assistance to be able to manage a therapeutic source to take nutrition.",6],
+  ["Cannot convey food and drink to their mouth and needs another person to do so.",10]]],
+ ["Managing therapy or monitoring a health condition", [
+  ["Does not receive medication or therapy or need to monitor a health condition, or can manage these unaided.",0],
+  ["Needs any one or more of: an aid or appliance to manage medication; supervision, prompting or assistance to manage medication; supervision, prompting or assistance to monitor a health condition.",1],
+  ["Needs supervision, prompting or assistance to manage therapy that takes no more than 3.5 hours a week.",2],
+  ["Needs supervision, prompting or assistance to manage therapy that takes more than 3.5 but no more than 7 hours a week.",4],
+  ["Needs supervision, prompting or assistance to manage therapy that takes more than 7 but no more than 14 hours a week.",6],
+  ["Needs supervision, prompting or assistance to manage therapy that takes more than 14 hours a week.",8]]],
+ ["Washing and bathing", [
+  ["Can wash and bathe unaided.",0],
+  ["Needs to use an aid or appliance to be able to wash or bathe.",2],
+  ["Needs supervision or prompting to be able to wash or bathe.",2],
+  ["Needs assistance to be able to wash either their hair or body below the waist.",2],
+  ["Needs assistance to be able to get in or out of a bath or shower.",3],
+  ["Needs assistance to be able to wash their body between the shoulders and waist.",4],
+  ["Cannot wash and bathe at all and needs another person to wash their entire body.",8]]],
+ ["Managing toilet needs or incontinence", [
+  ["Can manage toilet needs or incontinence unaided.",0],
+  ["Needs to use an aid or appliance to be able to manage toilet needs or incontinence.",2],
+  ["Needs supervision or prompting to be able to manage toilet needs.",2],
+  ["Needs assistance to be able to manage toilet needs.",4],
+  ["Needs assistance to be able to manage incontinence of either bladder or bowel.",6],
+  ["Needs assistance to be able to manage incontinence of both bladder and bowel.",8]]],
+ ["Dressing and undressing", [
+  ["Can dress and undress unaided.",0],
+  ["Needs to use an aid or appliance to be able to dress or undress.",2],
+  ["Needs prompting to be able to dress, undress or determine appropriate circumstances for remaining clothed, or prompting or assistance to be able to select appropriate clothing.",2],
+  ["Needs assistance to be able to dress or undress their lower body.",2],
+  ["Needs assistance to be able to dress or undress their upper body.",4],
+  ["Cannot dress or undress at all.",8]]],
+ ["Communicating verbally", [
+  ["Can express and understand verbal information unaided.",0],
+  ["Needs to use an aid or appliance to be able to speak or hear.",2],
+  ["Needs communication support to be able to express or understand complex verbal information.",4],
+  ["Needs communication support to be able to express or understand basic verbal information.",8],
+  ["Cannot express or understand verbal information at all even with communication support.",12]]],
+ ["Reading and understanding signs, symbols and words", [
+  ["Can read and understand basic and complex written information either unaided or using spectacles or contact lenses.",0],
+  ["Needs to use an aid or appliance, other than spectacles or contact lenses, to be able to read or understand either basic or complex written information.",2],
+  ["Needs prompting to be able to read or understand complex written information.",2],
+  ["Needs prompting to be able to read or understand basic written information.",4],
+  ["Cannot read or understand signs, symbols or words at all.",8]]],
+ ["Engaging with other people face to face", [
+  ["Can engage with other people unaided.",0],
+  ["Needs prompting to be able to engage with other people.",2],
+  ["Needs social support to be able to engage with other people.",4],
+  ["Cannot engage with other people due to such engagement causing either overwhelming psychological distress, or behaviour which would result in a substantial risk of harm to the claimant or another person.",8]]],
+ ["Making budgeting decisions", [
+  ["Can manage complex budgeting decisions unaided.",0],
+  ["Needs prompting or assistance to be able to make complex budgeting decisions.",2],
+  ["Needs prompting or assistance to be able to make simple budgeting decisions.",4],
+  ["Cannot make any budgeting decisions at all.",6]]]
+];
+const MOB = [
+ ["Planning and following journeys", [
+  ["Can plan and follow the route of a journey unaided.",0],
+  ["Needs prompting to be able to undertake any journey to avoid overwhelming psychological distress to the claimant.",4],
+  ["Cannot plan the route of a journey.",8],
+  ["Cannot follow the route of an unfamiliar journey without another person, assistance dog or orientation aid.",10],
+  ["Cannot undertake any journey because it would cause overwhelming psychological distress to the claimant.",10],
+  ["Cannot follow the route of a familiar journey without another person, an assistance dog or an orientation aid.",12]]],
+ ["Moving around", [
+  ["Can stand and then move more than 200 metres, either aided or unaided.",0],
+  ["Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided.",4],
+  ["Can stand and then move unaided more than 20 metres but no more than 50 metres.",8],
+  ["Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres.",10],
+  ["Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided.",12],
+  ["Cannot, either aided or unaided, stand or move more than 1 metre.",12]]]
+];
+const RATES = {dl:[76.70,114.60], mob:[30.30,80.00]};
+const KEY = "pip-points-v1";
+const L = "abcdefghij";
+const $ = id => document.getElementById(id);
+let pick = {};
+try { pick = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+
+function build(list, part, el){
+  list.forEach(([name, ds], i) => {
+    const id = part + i, d = document.createElement("details");
+    d.className = "act";
+    d.innerHTML = `<summary><span class="num">${i+1}</span><span class="title"><b>${name}</b><small id="s-${id}">Not answered</small></span><span class="chip" id="c-${id}">0</span><span class="chev"></span></summary><div class="opts" role="radiogroup" aria-label="${name}"></div>`;
+    const box = d.querySelector(".opts");
+    ds.forEach(([t, p], j) => {
+      const lab = document.createElement("label"); lab.className = "opt";
+      lab.innerHTML = `<input type="radio" name="${id}" value="${j}"><span><b>${L[j]}.</b> ${t}</span><em>${p} ${p === 1 ? "pt" : "pts"}</em>`;
+      const r = lab.querySelector("input");
+      if (pick[id] === j) r.checked = true;
+      r.addEventListener("change", () => { pick[id] = j; save(); update(); setTimeout(() => { d.open = false; const nx = d.nextElementSibling; if (nx && !Object.hasOwn(pick, part + (i+1))) { nx.open = true; } d.scrollIntoView({block:"start", behavior:"smooth"}); }, 250); });
+      box.appendChild(lab);
+    });
+    el.appendChild(d);
+  });
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(pick)); } catch (e) {} }
+function score(list, part){
+  let s = 0;
+  list.forEach(([name, ds], i) => {
+    const id = part + i, j = pick[id], p = j === undefined ? 0 : ds[j][1];
+    s += p;
+    $("c-" + id).textContent = p; $("c-" + id).classList.toggle("on", p > 0);
+    $("s-" + id).textContent = j === undefined ? "Not answered" : `${L[j]}. ${ds[j][0]}`;
+  });
+  return s;
+}
+function rate(p){ return p >= 12 ? 2 : p >= 8 ? 1 : 0; }
+const gbp = n => "£" + n.toFixed(2);
+function show(p, key, ptsEl, rateEl, needEl, headEl){
+  const r = rate(p);
+  $(ptsEl).textContent = p; $(headEl).textContent = p + (p === 1 ? " point" : " points");
+  const re = $(rateEl);
+  re.textContent = ["Not enough yet","Standard rate","Enhanced rate"][r];
+  re.className = "rate" + ["", " std", " enh"][r];
+  $(needEl).textContent = r === 0 ? `${8 - p} more for standard` : r === 1 ? `${gbp(RATES[key][0])} a week · ${12 - p} more for enhanced` : `${gbp(RATES[key][1])} a week`;
+  return r ? RATES[key][r - 1] : 0;
+}
+function update(){
+  const dl = score(DAILY, "d"), mob = score(MOB, "m");
+  const a = show(dl, "dl", "dlPts", "dlRate", "dlNeed", "dlHead"), b = show(mob, "mob", "mobPts", "mobRate", "mobNeed", "mobHead");
+  const w = a + b, any = Object.keys(pick).length;
+  $("money").innerHTML = !any ? "Tick the lines that fit you to see what your points add up to."
+    : w ? `If the DWP agreed with these answers, that would be <b>${gbp(w)} a week</b>, or <b>${gbp(w * 4)}</b> every four weeks.`
+    : "These answers don't reach 8 points in either part yet. Check each activity again with your worst and typical days in mind, and remember the reliability rules below.";
+  $("bDl").textContent = dl; $("bMob").textContent = mob;
+}
+function summary(){
+  const lines = ["My PIP self-check (darko893.github.io/pip-points)", ""];
+  [["Daily living", DAILY, "d"], ["Mobility", MOB, "m"]].forEach(([h, list, part]) => {
+    let s = 0; const rows = [];
+    list.forEach(([name, ds], i) => { const j = pick[part + i]; if (j === undefined) return; s += ds[j][1]; rows.push(`${i+1}. ${name}: ${L[j]} (${ds[j][1]}) ${ds[j][0]}`); });
+    lines.push(`${h}: ${s} points, ${["no award","standard rate","enhanced rate"][rate(s)]}`, ...rows, "");
+  });
+  return lines.join("\n");
+}
+function toast(t){ const e = $("toast"); e.textContent = t; e.classList.add("on"); setTimeout(() => e.classList.remove("on"), 1800); }
+$("copy").onclick = () => { const t = summary(); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast("Copied"), () => { prompt("Copy this:", t); }); };
+$("print").onclick = () => { document.querySelectorAll("details.act").forEach(d => d.open = true); print(); };
+$("reset").onclick = () => { if (!confirm("Clear all your answers?")) return; pick = {}; save(); document.querySelectorAll("input[type=radio]").forEach(r => r.checked = false); update(); scrollTo({top:0, behavior:"smooth"}); };
+build(DAILY, "d", $("daily")); build(MOB, "m", $("mob")); update();
+new IntersectionObserver(es => es.forEach(e => $("bar").classList.toggle("hide", e.isIntersecting || scrollY < 300)), {threshold:0}).observe($("result"));
+addEventListener("scroll", () => { const r = $("result").getBoundingClientRect(); $("bar").classList.toggle("hide", scrollY < 300 || r.top < innerHeight); }, {passive:true});
+</script>
+</body>
+</html>
