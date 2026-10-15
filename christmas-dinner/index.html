@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christmas Dinner Timer: Your Time Plan from the Time You Want to Eat</title>
+<meta name="description" content="Free Christmas dinner time planner. Enter when you want to eat and the size of your turkey, tick your trimmings, and get a minute-by-minute plan: oven on, turkey in, potatoes, pigs in blankets, gravy, pudding. Works with one oven. Print it or add alarms to your phone.">
+<link rel="canonical" href="https://darko893.github.io/christmas-dinner/">
+<meta property="og:title" content="Christmas dinner timer">
+<meta property="og:description" content="A minute-by-minute Christmas dinner plan worked back from the time you want to eat. Turkey, roast potatoes, trimmings, gravy and pudding. Free, no sign-up.">
+<meta property="og:url" content="https://darko893.github.io/christmas-dinner/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#8c1c1c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238c1c1c'/%3E%3Ccircle cx='16' cy='17' r='9' fill='none' stroke='white' stroke-width='2.5'/%3E%3Cpath d='M16 12v5l3 2' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Christmas dinner timer","url":"https://darko893.github.io/christmas-dinner/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Works back from the time you want to eat Christmas dinner and gives a minute-by-minute cooking plan for the turkey and trimmings, with one or two ovens, a printable sheet and phone alarms."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What time should I put my turkey in?","acceptedAnswer":{"@type":"Answer","text":"Work back from when you want to eat: take off about 45 minutes for resting and carving, then the cooking time. Using the common rule of thumb of 20 minutes per kg plus 90 minutes (plus 70 minutes under 4 kg) at 190C, 170C fan, gas 5, a 5 kg turkey takes 3 hours 10 minutes, so for dinner at 3pm it goes in at 11:05 with the oven switched on at 10:45. The cooking time on your turkey's label comes first."}},
+{"@type":"Question","name":"How long does a turkey take to cook per kg?","acceptedAnswer":{"@type":"Answer","text":"A common UK rule of thumb for an oven-ready turkey or crown at 190C (170C fan, gas 5) is 20 minutes per kg plus 70 minutes for birds under 4 kg, or plus 90 minutes from 4 kg. Guides and ovens differ, so follow the label and check with a thermometer: the thickest part of the thigh should reach 75C, or the juices run clear with no pink meat."}},
+{"@type":"Question","name":"How long should a turkey rest?","acceptedAnswer":{"@type":"Answer","text":"At least 30 minutes, and many cooks rest it for 45 minutes to an hour or more, loosely covered with foil and a tea towel. It stays hot, and the oven is free to turn up for the roast potatoes and trimmings."}},
+{"@type":"Question","name":"How long does a frozen turkey take to defrost?","acceptedAnswer":{"@type":"Answer","text":"The Food Standards Agency says to thaw it in the fridge and to allow around 10 to 12 hours per kg, so a 5 kg turkey needs about two and a half days. Check there is no ice in the cavity before cooking."}},
+{"@type":"Question","name":"How do I fit Christmas dinner into one oven?","acceptedAnswer":{"@type":"Answer","text":"Roast the turkey first, then use its resting time: when it comes out, turn the oven up to 220C (200C fan, gas 7) for the roast potatoes, parsnips, pigs in blankets and stuffing. Potatoes take longest, so they often go in alongside the turkey for the last part of its cooking time."}}
+]}
+</script>
+<style>
+:root{--bg:#f6f1ea;--card:#fff;--ink:#22160f;--muted:#6a5a4e;--line:#e2d6c8;--accent:#8c1c1c;--accent-ink:#fff;--soft:#f3e7da;--green:#1e5b3a;--warn:#7a4a00;--warn-bg:#fff3dc;--now:#fff7d1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15100d;--card:#1f1814;--ink:#f1e8df;--muted:#b3a294;--line:#3a2e26;--accent:#ff8f86;--accent-ink:#2a0905;--soft:#2a201a;--green:#7fd3a3;--warn:#ffcf7a;--warn-bg:#33270f;--now:#3a3210}}
+:root[data-theme="dark"]{--bg:#15100d;--card:#1f1814;--ink:#f1e8df;--muted:#b3a294;--line:#3a2e26;--accent:#ff8f86;--accent-ink:#2a0905;--soft:#2a201a;--green:#7fd3a3;--warn:#ffcf7a;--warn-bg:#33270f;--now:#3a3210}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+body::before{content:'';display:block;height:8px;background:repeating-linear-gradient(90deg,#8c1c1c 0 28px,#f6f1ea 28px 34px,#1e5b3a 34px 62px,#f6f1ea 62px 68px)}
+main,header,footer{max-width:1120px;margin:0 auto;padding:0 16px}
+header{padding-top:22px}
+h1{font-size:2rem;line-height:1.1;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:1.25rem;margin:0 0 12px}
+h3{font-size:1.05rem;margin:16px 0 6px}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.lede{color:var(--muted);margin-bottom:16px;max-width:760px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;margin:0 0 16px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 16px}
+@media (min-width:980px){.layout{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}.out-col{position:sticky;top:12px;align-self:start;max-height:calc(100vh - 24px);overflow:auto}}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+.full{grid-column:1/-1}
+label{font-weight:600;display:block;margin-bottom:4px;font-size:.95rem}
+.hint{font-weight:400;color:var(--muted);font-size:.85rem}
+input,select,button{font:inherit;color:inherit}
+input[type=number],input[type=text],input[type=date],input[type=time],select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);min-height:44px}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+button{cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:8px 14px;min-height:44px}
+button.ghost{background:transparent;color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.check{display:flex;gap:8px;align-items:center;font-weight:400;min-height:44px;margin:0}
+.check input{width:20px;height:20px;flex:none}
+.dishes{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.dishes li{display:grid;grid-template-columns:minmax(0,1fr) 5.5em;gap:4px 10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:2px 10px}
+.dishes li.off{opacity:.6}
+.dishes .check{font-weight:600;overflow-wrap:anywhere}
+.dishes .where{display:block;font-weight:400;font-size:.8rem;color:var(--muted)}
+.dishes input[type=number]{min-height:40px;padding:6px 8px;text-align:right}
+.dishes .rm{grid-column:1/-1;justify-self:start;min-height:36px;padding:4px 10px;font-size:.88rem;margin-bottom:6px}
+.addrow{display:grid;grid-template-columns:minmax(0,1fr) 7em 5.5em;gap:8px;margin-top:12px;align-items:end}
+@media (max-width:480px){.addrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.addrow .nm{grid-column:1/-1}}
+.est{color:var(--muted);font-size:.9rem;margin-top:4px}
+.msgs{margin:0 0 12px;padding:0;list-style:none}
+.msgs li{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:.92rem}
+.summary{font-size:1.1rem;margin-bottom:12px}
+.summary b{font-variant-numeric:tabular-nums}
+.plan{list-style:none;margin:0 0 14px;padding:0;border-top:1px solid var(--line)}
+.plan li{display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.plan li.day{display:block;font-weight:700;color:var(--green);padding-top:14px}
+.plan li.early{grid-template-columns:minmax(0,1fr)}
+.plan .t{font-weight:700;font-variant-numeric:tabular-nums}
+.plan li.k-main .x,.plan li.k-serve .x{font-weight:700}
+.plan li.k-check .x{color:var(--green)}
+.plan li.k-oven .x,.plan li.k-ovenup .x{color:var(--accent)}
+.plan li.done{opacity:.45}
+.plan li.now{background:var(--now)}
+.empty{color:var(--muted)}
+.faq h3{margin-top:16px}
+table{border-collapse:collapse;font-size:.92rem;font-variant-numeric:tabular-nums;width:100%}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px}
+.small{font-size:.88rem;color:var(--muted)}
+footer{padding-bottom:30px;color:var(--muted);font-size:.9rem}
+#tip{display:none}
+.hidden{display:none !important}
+/* kitchen mode */
+#kitchen{position:fixed;inset:0;background:var(--bg);z-index:10;overflow:auto;padding:16px}
+#kitchen .wrap{max-width:720px;margin:0 auto}
+#kitchen .clock{font-size:1.1rem;color:var(--muted);font-variant-numeric:tabular-nums}
+#kitchen .next{font-size:1.6rem;line-height:1.25;font-weight:700;margin:10px 0}
+#kitchen .count{font-size:3rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent);line-height:1.1}
+#kitchen .kstep{display:block;margin-top:6px}
+#kitchen ol{padding-left:1.2em}
+#kitchen li{margin-bottom:6px}
+@media (max-width:420px){h1{font-size:1.7rem}.grid2{gap:10px 8px}#kitchen .count{font-size:2.4rem}}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;color:#000;font-size:11.5pt}
+  body::before,header,footer,.no-print,.in-col,.faq,#kitchen{display:none !important}
+  .layout{display:block}
+  .out-col{position:static;max-height:none;overflow:visible}
+  section{border:0;padding:0;margin:0}
+  :root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--bg:#fff;--card:#fff;--ink:#000;--muted:#333;--line:#aaa;--accent:#000;--green:#000;--warn:#000;--warn-bg:#fff;--now:#fff}
+  .plan li{break-inside:avoid;padding:4px 0}
+  .plan li.done{opacity:1}
+  .print-title{display:block !important;font-size:16pt;font-weight:700;margin-bottom:6px}
+}
+.print-title{display:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Christmas dinner timer</h1>
+  <p class="lede">Say when you want to eat, how big the turkey is and what's on the table. You get a minute-by-minute plan worked back from that time: oven on, turkey in, when to check it, potatoes, pigs in blankets, gravy and pudding, fitted around one oven or two. Print it, or add every step to your phone as an alarm. Free, no sign-up, nothing you type leaves your device.</p>
+</header>
+<main>
+<div class="layout">
+<div class="in-col">
+  <section aria-labelledby="h-when">
+    <h2 id="h-when">1. When are you eating?</h2>
+    <div class="grid2">
+      <div>
+        <label for="f-date">Day</label>
+        <input id="f-date" type="date">
+      </div>
+      <div>
+        <label for="f-time">Sit down to eat at</label>
+        <input id="f-time" type="time" value="15:00" step="300">
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-main">
+    <h2 id="h-main">2. The main</h2>
+    <div class="grid2">
+      <div class="full">
+        <label for="f-main">What are you roasting?</label>
+        <select id="f-main">
+          <option value="turkey" selected>Whole turkey</option>
+          <option value="crown">Turkey crown</option>
+          <option value="other">Something else (beef, gammon, nut roast...)</option>
+          <option value="none">No roast (just the trimmings)</option>
+        </select>
+      </div>
+      <div class="w-only">
+        <label for="f-weight">Weight <span class="hint">(oven-ready, with stuffing)</span></label>
+        <input id="f-weight" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="5">
+      </div>
+      <div class="w-only">
+        <label for="f-unit">Unit</label>
+        <select id="f-unit"><option value="kg" selected>kg</option><option value="lb">lb</option></select>
+      </div>
+      <div class="o-only full">
+        <label for="f-mainname">What is it?</label>
+        <input id="f-mainname" type="text" maxlength="40" placeholder="e.g. beef, gammon, nut roast" autocomplete="off">
+      </div>
+      <div class="o-only full">
+        <label for="f-maintemp">Oven temperature <span class="hint">(from the label or recipe)</span></label>
+        <input id="f-maintemp" type="text" maxlength="40" placeholder="e.g. 180°C (160°C fan, gas 4)" autocomplete="off">
+      </div>
+      <div class="m-only full">
+        <label for="f-cook">Cooking time from the label <span class="hint" id="cook-hint">(optional: e.g. 3:10 or 190)</span></label>
+        <input id="f-cook" type="text" inputmode="numeric" maxlength="8" placeholder="h:mm or minutes" autocomplete="off">
+        <p class="est" id="est" aria-live="polite"></p>
+      </div>
+      <div class="m-only">
+        <label for="f-rest">Rest before carving</label>
+        <select id="f-rest">
+          <option value="30">30 min</option>
+          <option value="45" selected>45 min</option>
+          <option value="60">1 hour</option>
+          <option value="75">1 h 15 min</option>
+          <option value="90">1 h 30 min</option>
+        </select>
+      </div>
+      <div class="w-only m-only">
+        <label class="check" style="margin-top:26px"><input id="f-frozen" type="checkbox"> It's frozen</label>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-kit">
+    <h2 id="h-kit">3. Your kitchen</h2>
+    <div class="grid2">
+      <div>
+        <label for="f-ovens">Ovens</label>
+        <select id="f-ovens"><option value="1" selected>One oven</option><option value="2">Two (or a double oven)</option></select>
+      </div>
+      <div>
+        <label for="f-rings">Hob rings</label>
+        <input id="f-rings" type="number" inputmode="numeric" min="1" max="8" value="4">
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-dishes">
+    <h2 id="h-dishes">4. The trimmings</h2>
+    <p class="hint">Tick what you're making. Minutes are cooking times; change them to match your recipe or packet.</p>
+    <ul class="dishes" id="dishes"></ul>
+    <div class="addrow">
+      <div class="nm">
+        <label for="f-addname">Add your own</label>
+        <input id="f-addname" type="text" maxlength="40" placeholder="e.g. honey-roast carrots" autocomplete="off">
+      </div>
+      <div>
+        <label for="f-addwhere">Where</label>
+        <select id="f-addwhere"><option value="oven">Oven</option><option value="hob">Hob</option></select>
+      </div>
+      <div>
+        <label for="f-addmins">Min</label>
+        <input id="f-addmins" type="number" inputmode="numeric" min="1" max="600" value="30">
+      </div>
+    </div>
+    <div class="btns"><button type="button" class="ghost" id="b-add">Add dish</button></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="full" id="pud-row">
+        <label for="f-gap">Pudding served <span class="hint">(minutes after you sit down)</span></label>
+        <input id="f-gap" type="number" inputmode="numeric" min="0" max="180" value="45">
+      </div>
+    </div>
+    <div class="btns">
+      <button type="button" class="ghost" id="b-reset">Reset to the usual</button>
+    </div>
+    <p class="hint">Remembered on this device only.</p>
+  </section>
+</div>
+
+<div class="out-col">
+  <section aria-labelledby="h-plan" id="out">
+    <span class="print-title">Christmas dinner time plan</span>
+    <h2 id="h-plan" class="no-print">Your time plan</h2>
+    <p class="summary" id="summary"></p>
+    <ul class="msgs" id="msgs" aria-live="polite"></ul>
+    <ul class="plan" id="plan"></ul>
+    <div class="btns no-print">
+      <button type="button" id="b-kitchen">Kitchen mode</button>
+      <button type="button" class="ghost" id="b-print">Print or save as PDF</button>
+      <button type="button" class="ghost" id="b-ics">Add alarms to my calendar</button>
+      <button type="button" class="ghost" id="b-copy">Copy as text</button>
+    </div>
+    <p class="hint no-print" id="copy-note" aria-live="polite"></p>
+    <p class="small">Times are a guide. Your food's packaging comes first, and meat must be cooked right through: check the turkey with a thermometer (75&deg;C in the thickest part of the thigh) or make sure the juices run clear, there's no pink meat and it's steaming hot.</p>
+    <p class="small no-print" id="tip">Did it help? <a id="tip-link" href="#" rel="noopener">Buy the cook a mince pie (&pound;3)</a>.</p>
+  </section>
+</div>
+</div>
+
+<section class="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">Christmas dinner timings: questions</h2>
+  <h3>What time should I put my turkey in?</h3>
+  <p>Work back from when you want to eat: take off the resting time (about 45 minutes, which covers carving), then the cooking time, then 20 minutes to heat the oven. These times use the rule of thumb below and a 45 minute rest. The cooking time on your turkey's label comes first.</p>
+  <div class="tablewrap">
+  <table id="when-table">
+    <!-- WHEN-TABLE:START -->
+    <thead><tr><th>Turkey</th><th>Cooking time</th><th>Eat at 1pm</th><th>Eat at 2pm</th><th>Eat at 3pm</th><th>Eat at 4pm</th></tr></thead>
+    <tbody>
+    <tr><td>3 kg</td><td>2 h 10 min</td><td>10:05</td><td>11:05</td><td>12:05</td><td>13:05</td></tr>
+    <tr><td>4 kg</td><td>2 h 50 min</td><td>09:25</td><td>10:25</td><td>11:25</td><td>12:25</td></tr>
+    <tr><td>5 kg</td><td>3 h 10 min</td><td>09:05</td><td>10:05</td><td>11:05</td><td>12:05</td></tr>
+    <tr><td>6 kg</td><td>3 h 30 min</td><td>08:45</td><td>09:45</td><td>10:45</td><td>11:45</td></tr>
+    <tr><td>7 kg</td><td>3 h 50 min</td><td>08:25</td><td>09:25</td><td>10:25</td><td>11:25</td></tr>
+    <tr><td>8 kg</td><td>4 h 10 min</td><td>08:05</td><td>09:05</td><td>10:05</td><td>11:05</td></tr>
+    </tbody>
+    <!-- WHEN-TABLE:END -->
+  </table>
+  </div>
+  <p class="small">Turkey goes in at the time shown; switch the oven on 20 minutes before.</p>
+
+  <h3>How long does a turkey take to cook per kg?</h3>
+  <p>A common UK rule of thumb for an oven-ready turkey or crown at 190&deg;C (170&deg;C fan, gas 5) is <b>20 minutes per kg, plus 70 minutes for birds under 4 kg or plus 90 minutes from 4 kg</b>. Guides differ, and so do ovens, so follow the label if it has one and check with a thermometer: the thickest part of the thigh should reach 75&deg;C, or the juices run clear with no pink meat and it's steaming hot. This planner puts a check in 30 minutes before the turkey is due out, so you have time to give it longer.</p>
+
+  <h3>How long should a turkey rest?</h3>
+  <p>At least 30 minutes; many cooks rest it for 45 minutes to an hour or more, loosely covered with foil and a clean tea towel. It stays hot, the meat is easier to carve, and the oven is free for the potatoes and trimmings.</p>
+
+  <h3>How long does a frozen turkey take to defrost?</h3>
+  <p>The Food Standards Agency says to thaw it in the fridge and allow around 10 to 12 hours per kg; a 6 to 7 kg bird can take up to 4 days. Tick "It's frozen" and the plan tells you when to move it from the freezer to the fridge (it uses 12 hours per kg). Check there's no ice in the cavity before cooking.</p>
+
+  <h3>How do I fit Christmas dinner into one oven?</h3>
+  <p>Roast the turkey first, then use its resting time: when it comes out, turn the oven up to 220&deg;C (200&deg;C fan, gas 7) for the roast potatoes, parsnips, pigs in blankets and stuffing. Potatoes take longest, so with a 45 minute rest they go in alongside the turkey for its last stretch and crisp up once the oven is turned up. A longer rest, or a second oven, avoids that; the plan tells you which.</p>
+
+  <h3>Can I get alarms on my phone?</h3>
+  <p>Yes. "Add alarms to my calendar" downloads a calendar file with every step as an event that alerts at its time. Open it on your phone and add the events to your calendar (on an iPhone tap "Add All"). Or keep this page open in <b>Kitchen mode</b>: it shows the next job and a countdown in big type and keeps the screen awake where the browser allows.</p>
+
+  <h3>Is my information stored anywhere?</h3>
+  <p>No. Everything is worked out in your browser and remembered only on this device. The page counts visits without cookies.</p>
+</section>
+</main>
+<footer>
+  <p>Not affiliated with the Food Standards Agency or any retailer. The turkey times are a rule of thumb; your packaging and a thermometer come first. Problems or ideas: <a href="https://github.com/Darko893/darko893.github.io/issues">report them here</a>.</p>
+</footer>
+
+<div id="kitchen" class="hidden" role="dialog" aria-modal="true" aria-labelledby="k-title">
+  <div class="wrap">
+    <div class="btns" style="margin-top:0"><button type="button" class="ghost" id="b-kclose">Close kitchen mode</button><button type="button" class="ghost" id="b-beep" aria-pressed="false">Beep at each step: off</button></div>
+    <p class="clock" id="k-clock"></p>
+    <h2 id="k-title">Next</h2>
+    <p class="count" id="k-count"></p>
+    <p class="next" id="k-next"></p>
+    <h3>Then</h3>
+    <ol id="k-then"></ol>
+    <p class="hint" id="k-wake"></p>
+  </div>
+</div>
+
+<script src="plan.js"></script>
+<script src="app.js"></script>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
