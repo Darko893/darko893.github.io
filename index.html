@@ -32,11 +32,11 @@ h2{font:800 clamp(1.9rem,4.5vw,2.6rem)/1 "Big Shoulders Display",Impact,sans-ser
 .note{margin:0 0 2rem;color:var(--soft)}
 section{padding:clamp(2rem,5vw,3.5rem) 0}
 .shelf{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:3.4rem 2.2rem;align-items:start}
-.shelf li{display:flex;flex-direction:column;min-width:0}
+.shelf li{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;min-width:0}
 .stand{position:relative;display:flex;align-items:flex-end;aspect-ratio:640/906;padding:0 .5rem;margin-bottom:1.15rem}
 .stand::after{content:"";position:absolute;left:-1.15rem;right:-1.15rem;bottom:-.7rem;height:.7rem;background:var(--ledge);box-shadow:0 .55rem .9rem -.3rem rgba(24,35,63,.45)}
 .pic{position:relative;display:block;width:100%}
-.pic img{display:block;width:100%;height:auto;box-shadow:0 1px 0 rgba(0,0,0,.08),0 .9rem 1.4rem -.6rem rgba(24,35,63,.35);transition:transform .25s ease}
+.pic img{display:block;width:100%;height:auto;aspect-ratio:640/906;object-fit:cover;box-shadow:0 1px 0 rgba(0,0,0,.08),0 .9rem 1.4rem -.6rem rgba(24,35,63,.35);transition:transform .25s ease}
 .stand:hover img{transform:translateY(-4px)}
 .tag{position:absolute;top:-.5rem;right:-.65rem;z-index:2;transform:rotate(7deg);transform-origin:12% 50%;
  font:800 1.45rem/1 "Big Shoulders Display",Impact,sans-serif;color:var(--ink);background:var(--kraft);padding:.45rem .7rem .4rem 1.35rem;
@@ -46,7 +46,7 @@ section{padding:clamp(2rem,5vw,3.5rem) 0}
 .shelf h3 a{text-decoration:none}
 .shelf h3 a:hover{text-decoration:underline}
 .shelf p{margin:0 0 .55rem;color:var(--soft);font-size:.95rem}
-.shelf .buy{font-weight:700;margin-top:auto}
+.shelf .buy{font-weight:700;align-self:start;justify-self:start}
 .tools{border-top:2px solid var(--ink)}
 .tools ul{list-style:none;margin:0;padding:0}
 .tools li{display:grid;grid-template-columns:minmax(12rem,20rem) 1fr;gap:.3rem 2rem;padding:1.05rem 0;border-bottom:1px solid #b9beb5}
@@ -63,6 +63,7 @@ footer p{margin:.3rem 0}
  .tag{font-size:1.2rem;padding:.36rem .55rem .32rem 1.15rem;right:-.45rem}
  .shelf h3{font-size:1rem}
  .shelf p{font-size:.92rem}
+ .shelf li:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc((100% - 1.2rem)/2)}
  .tools li{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){.stand img{transition:none}.stand:hover img{transform:none}}
@@ -82,31 +83,31 @@ footer p{margin:.3rem 0}
 <li>
  <a class="stand" href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj"><span class="pic"><span class="tag">£12</span><img src="/img/fhqvj.webp" width="640" height="854" alt="Christmas word search book cover with a family surname hidden in the grid"></span></a>
  <h3><a href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj">Your Family’s Own Christmas Word Search</a></h3>
- <p>50 large print puzzles built around your surname, names, pets and in-jokes. Made to order as a PDF to print and give.</p>
+ <p>50 large print puzzles built around your family’s names. Made to order.</p>
  <a class="buy" href="https://6149728987361.gumroad.com/l/fhqvj" data-goatcounter-click="shop-fhqvj">See it on Gumroad</a>
 </li>
 <li>
  <a class="stand" href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg"><span class="pic"><span class="tag">£2</span><img src="/img/qvumeg.webp" width="640" height="905" alt="Large print sudoku book cover with a puzzle page and pencil"></span></a>
  <h3><a href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg">Large Print Sudoku</a></h3>
- <p>60 puzzles, one to a page, with numbers big enough to read without squinting. Answers at the back.</p>
+ <p>60 big-number puzzles, one to a page. Answers at the back.</p>
  <a class="buy" href="https://6149728987361.gumroad.com/l/qvumeg" data-goatcounter-click="shop-qvumeg">See it on Gumroad</a>
 </li>
 <li>
  <a class="stand" href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir"><span class="pic"><span class="tag">£3</span><img src="/img/zpdzir.webp" width="640" height="906" alt="What Carers Can Claim booklet cover with a checklist of payments"></span></a>
  <h3><a href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir">What Carers Can Claim, 2026 to 2027</a></h3>
- <p>If you look after someone unpaid, this goes through what you may be owed, how to claim it and the traps to avoid. A4 guide and workbook.</p>
+ <p>What unpaid carers may be owed, how to claim it and the traps to avoid.</p>
  <a class="buy" href="https://6149728987361.gumroad.com/l/zpdzir" data-goatcounter-click="shop-zpdzir">See it on Gumroad</a>
 </li>
 <li>
  <a class="stand" href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl"><span class="pic"><span class="tag">£4</span><img src="/img/qjvxvl.webp" width="640" height="854" alt="Resale Profit Tracker open on a phone, showing profit this month"></span></a>
  <h3><a href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl">Resale Profit Tracker</a></h3>
- <p>For Vinted, eBay and Depop sellers: your real profit after postage and fees, and which stock has sat too long.</p>
+ <p>Your real profit after fees and postage on Vinted, eBay and Depop.</p>
  <a class="buy" href="https://6149728987361.gumroad.com/l/qjvxvl" data-goatcounter-click="shop-qjvxvl">See it on Gumroad</a>
 </li>
 <li>
  <a class="stand" href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft"><span class="pic"><span class="tag">£4</span><img src="/img/fkiqft.webp" width="640" height="854" alt="Debt Payoff Planner open on a phone, showing a debt-free date"></span></a>
  <h3><a href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft">Debt Payoff Planner</a></h3>
- <p>Type in what you owe, move one slider and see the month you’re debt free. Works offline in your browser.</p>
+ <p>Type in what you owe and see the month you’ll be debt free. Works offline.</p>
  <a class="buy" href="https://6149728987361.gumroad.com/l/fkiqft" data-goatcounter-click="shop-fkiqft">See it on Gumroad</a>
 </li>
 </ul>
