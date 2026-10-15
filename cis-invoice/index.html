@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free CIS Invoice Maker UK: Labour, Materials, CIS Deduction and Reverse Charge VAT</title>
+<meta name="description" content="Free CIS invoice maker for UK construction subcontractors. Split labour and materials, work out the 20% or 30% CIS deduction, add domestic reverse charge VAT wording, then print or save as PDF. No sign-up; nothing leaves your browser.">
+<link rel="canonical" href="https://darko893.github.io/cis-invoice/">
+<meta property="og:title" content="Free CIS invoice maker (UK)">
+<meta property="og:description" content="Labour and materials split, CIS deduction, reverse charge VAT wording, print or save as PDF. No sign-up.">
+<meta property="og:url" content="https://darko893.github.io/cis-invoice/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23b8400b'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='13' font-weight='700' fill='white' text-anchor='middle'%3ECIS%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"CIS invoice maker","url":"https://darko893.github.io/cis-invoice/","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Makes printable invoices for UK Construction Industry Scheme subcontractors, with the labour and materials split, the CIS deduction and domestic reverse charge VAT wording."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is CIS taken off materials?","acceptedAnswer":{"@type":"Answer","text":"No. The contractor works out the CIS deduction on the labour part of your invoice. VAT, materials you bought for the job, plant hire you paid for, fuel (except for travel) and CITB levy are left out. Show labour and materials on separate lines, or the contractor may deduct CIS from the whole amount."}},
+{"@type":"Question","name":"What are the CIS deduction rates?","acceptedAnswer":{"@type":"Answer","text":"20% if you are registered for CIS, 30% if you are not registered, and 0% if HMRC has given you gross payment status."}},
+{"@type":"Question","name":"When does the domestic reverse charge apply?","acceptedAnswer":{"@type":"Answer","text":"When you are VAT registered, your customer is VAT registered and registered for CIS, the work is standard or reduced rated and reported under CIS, and the customer is not the end user or an intermediary. You show the VAT on the invoice but do not charge it, and add wording such as 'Reverse charge: customer to pay the VAT to HMRC'."}}
+]}
+</script>
+<style>
+:root{--bg:#f3f1ec;--card:#fffdf9;--ink:#1c1d1f;--muted:#5c5a55;--line:#ddd8cd;--accent:#b8400b;--accent-ink:#fff;--soft:#f6ebe2;--warn:#8a4b00;--warn-bg:#fff4e0;--bad:#a01818;--bad-bg:#fde8e8}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#1e1e1e;--ink:#efede8;--muted:#aaa59b;--line:#353330;--accent:#ffb21f;--accent-ink:#1a1206;--soft:#2a2620;--warn:#ffc46b;--warn-bg:#33270f;--bad:#ff9b9b;--bad-bg:#3a1717}}
+@font-face{font-family:'Big Shoulders';src:url(/fonts/bsd.woff2) format('woff2');font-weight:100 900;font-display:swap}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main,header,footer{max-width:1180px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+body::before{content:'';display:block;height:10px;background:repeating-linear-gradient(-45deg,#f5b800 0 14px,#1c1d1f 14px 28px)}
+h1{font-family:'Big Shoulders',system-ui,sans-serif;font-weight:800;font-size:2.4rem;line-height:1.05;letter-spacing:.01em;text-transform:uppercase;margin:0 0 8px}
+h2{font-family:'Big Shoulders',system-ui,sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:.02em;margin:0 0 12px}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.lede{color:var(--muted);margin-bottom:16px;max-width:760px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;margin:0 0 16px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 16px}
+@media (min-width:1000px){.layout{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}.preview-col{position:sticky;top:12px;align-self:start}}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+@media (max-width:560px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.full{grid-column:1/-1}
+label{font-weight:600;display:block;margin-bottom:4px;font-size:.95rem}
+.hint{font-weight:400;color:var(--muted);font-size:.85rem}
+input,select,textarea,button{font:inherit;color:inherit}
+input[type=text],input[type=date],input[type=email],input[type=tel],select,textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);min-height:44px}
+textarea{min-height:76px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+input.bad{border-color:var(--bad)}
+button{cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:8px 14px;min-height:44px}
+button.ghost{background:transparent;color:var(--accent)}
+button.small{min-height:44px;min-width:44px;padding:4px 10px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.line{border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 10px}
+.line .desc{grid-column:1/-1}
+.line .lt{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;grid-column:1/-1}
+.line .lt b{font-variant-numeric:tabular-nums}
+@media (min-width:480px){.line{grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr) minmax(0,1.2fr) minmax(0,1fr)}}
+.line select,.line input{padding-left:8px;padding-right:6px}
+.msg{border-radius:8px;padding:8px 10px;font-size:.92rem;margin:0 0 8px}
+.msg.warn{background:var(--warn-bg)}
+.msg.err{background:var(--bad-bg);color:var(--ink)}
+.check{display:flex;gap:8px;align-items:center;font-weight:400}
+.check input{width:22px;height:22px}
+details{border-top:1px solid var(--line);padding:10px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:600}
+footer{color:var(--muted);font-size:.88rem;padding-bottom:32px}
+.tip{display:none}
+.jump{display:none}
+@media (max-width:999px){.jump{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;justify-content:space-between;align-items:center;gap:12px;min-height:52px;padding:8px 16px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;box-shadow:0 -2px 8px rgba(0,0,0,.15)}.jump.hide{display:none}body{padding-bottom:60px}}
+/* the invoice itself: always black on white, like paper */
+.paper{background:#fff;color:#111;border:1px solid #ccd;border-radius:6px;padding:22px 20px;font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+.paper h3{font-size:22px;margin:0;letter-spacing:.5px}
+.paper .top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.paper .meta{text-align:right}
+.paper .meta div{white-space:nowrap}
+.paper .parties{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px}
+.paper .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:#555;margin-bottom:2px}
+.paper .pre{white-space:pre-line}
+.paper .tw{overflow-x:auto}
+.paper table{width:100%;border-collapse:collapse;margin:6px 0 12px}
+.paper th,.paper td{padding:6px 6px;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}
+.paper th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#444;border-bottom:2px solid #333}
+.paper td.n,.paper th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.paper .totals{margin-left:auto;max-width:360px}
+.paper .totals div{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.paper .totals div span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.paper .totals .due{border-top:2px solid #333;margin-top:4px;padding-top:6px;font-weight:700;font-size:16px}
+.paper .totals .memo{color:#444;font-size:13px}
+.paper .rc{border:2px solid #111;padding:8px 10px;margin:12px 0;font-weight:700}
+.paper .foot{margin-top:14px;font-size:13px}
+.paper .empty{color:#888;font-style:italic}
+@media (max-width:560px){.paper{padding:16px 12px;font-size:13px}.paper .parties{grid-template-columns:1fr}.paper .meta{text-align:left}}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}
+  body::before{display:none}
+  header,footer,.no-print,.layout>:not(.preview-col),.preview-col>:not(#invoice-wrap){display:none!important}
+  main{max-width:none;padding:0}
+  .layout{display:block}
+  section{border:0;padding:0;margin:0;background:#fff}
+  .paper{border:0;padding:0;font-size:12pt}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Free CIS invoice maker</h1>
+<p class="lede">For UK construction subcontractors. Put labour and materials on separate lines, and the page works out the CIS deduction (20%, 30% or gross), the VAT and the reverse charge wording, then prints the invoice or saves it as a PDF. No sign-up. Everything stays in your browser.</p>
+</header>
+<main>
+<div class="layout">
+<div class="form-col">
+
+<section aria-labelledby="h-you">
+<h2 id="h-you">1. Your details</h2>
+<div class="grid2">
+  <div class="full"><label for="f-name">Your name or business name</label><input type="text" id="f-name" autocomplete="organization" placeholder="e.g. J Smith Plastering"></div>
+  <div class="full"><label for="f-address">Your address</label><textarea id="f-address" autocomplete="street-address" placeholder="Street, town, postcode"></textarea></div>
+  <div><label for="f-contact">Phone or email <span class="hint">(optional)</span></label><input type="text" id="f-contact"></div>
+  <div><label for="f-utr">UTR <span class="hint">(10 digits)</span></label><input type="text" id="f-utr" inputmode="numeric" placeholder="12345 67890"></div>
+  <div><label for="f-cis">Your CIS status</label>
+    <select id="f-cis">
+      <option value="20">Registered for CIS (20% deduction)</option>
+      <option value="30">Not registered for CIS (30% deduction)</option>
+      <option value="0">Gross payment status (no deduction)</option>
+      <option value="none">Not a CIS job (e.g. work for a homeowner)</option>
+    </select></div>
+  <div><label for="f-vatreg">VAT</label>
+    <select id="f-vatreg">
+      <option value="no">Not VAT registered</option>
+      <option value="yes">VAT registered</option>
+    </select></div>
+  <div class="full vat-only"><label for="f-vatno">VAT registration number</label><input type="text" id="f-vatno" placeholder="GB 123 4567 89"></div>
+</div>
+</section>
+
+<section aria-labelledby="h-cust">
+<h2 id="h-cust">2. Customer (the contractor)</h2>
+<div class="grid2">
+  <div class="full"><label for="f-cname">Customer name</label><input type="text" id="f-cname" placeholder="e.g. ABC Builders Ltd"></div>
+  <div class="full"><label for="f-caddress">Customer address</label><textarea id="f-caddress"></textarea></div>
+  <div class="full vat-only"><label for="f-vatmode">How VAT works on this invoice</label>
+    <select id="f-vatmode">
+      <option value="reverse">Reverse charge: customer is a VAT-registered CIS contractor (not the end user)</option>
+      <option value="standard">Normal VAT: customer is the end user or an intermediary, or not VAT registered</option>
+    </select>
+    <p class="hint" style="margin-top:6px">Most subcontractor work for a main contractor is reverse charge. Charge VAT normally if the customer has told you in writing they are an end user or intermediary, or if they are not VAT or CIS registered (for example a homeowner).</p></div>
+</div>
+</section>
+
+<section aria-labelledby="h-inv">
+<h2 id="h-inv">3. Invoice</h2>
+<div class="grid2">
+  <div><label for="f-number">Invoice number</label><input type="text" id="f-number" value="INV-0001"></div>
+  <div><label for="f-date">Invoice date</label><input type="date" id="f-date"></div>
+  <div><label for="f-terms">Payment due</label>
+    <select id="f-terms">
+      <option value="0">On receipt</option>
+      <option value="7">7 days</option>
+      <option value="14">14 days</option>
+      <option value="30" selected>30 days</option>
+    </select></div>
+  <div><label for="f-period">Work period <span class="hint">(optional)</span></label><input type="text" id="f-period" placeholder="e.g. Week ending 16 Oct 2026"></div>
+  <div class="full"><label for="f-site">Job or site address <span class="hint">(optional)</span></label><input type="text" id="f-site"></div>
+</div>
+</section>
+
+<section aria-labelledby="h-lines">
+<h2 id="h-lines">4. Work and materials</h2>
+<p class="hint">One line per item. Choose <b>Labour</b> for your work, <b>Materials</b> for things you bought for the job, and <b>Plant hire</b> for equipment you hired in. CIS is only taken from labour.</p>
+<div id="lines"></div>
+<div class="btns"><button type="button" class="ghost" id="add-line">+ Add a line</button></div>
+</section>
+
+<section aria-labelledby="h-pay">
+<h2 id="h-pay">5. Payment details and notes</h2>
+<label for="f-notes">Shown at the bottom of the invoice <span class="hint">(bank name, sort code, account number, anything else)</span></label>
+<textarea id="f-notes" placeholder="Bank: ...&#10;Sort code: 00-00-00&#10;Account: 00000000"></textarea>
+<p style="margin-top:12px"><label class="check"><input type="checkbox" id="f-remember" checked> Remember my details on this device</label></p>
+<p class="hint">Saved only in this browser, so next week's invoice is quicker. Untick it on a shared computer.</p>
+</section>
+
+</div>
+<div class="preview-col">
+<section aria-labelledby="h-prev" id="invoice-wrap">
+<h2 id="h-prev" class="no-print">Your invoice</h2>
+<div id="messages" class="no-print" aria-live="polite"></div>
+<div class="paper" id="invoice"></div>
+<div class="btns no-print">
+  <button type="button" id="print">Print or save as PDF</button>
+  <button type="button" class="ghost" id="copy">Copy as text</button>
+  <button type="button" class="ghost" id="next">Start next invoice</button>
+  <button type="button" class="ghost" id="clear">Clear everything</button>
+</div>
+<p class="hint no-print" id="copy-status" aria-live="polite"></p>
+<p class="hint no-print">To save a PDF, press <b>Print</b> and choose <b>Save as PDF</b> (on a phone: Share, then Print, or the printer list).</p>
+<p class="tip no-print" id="tip">Saved you some time? <a id="tip-link" href="#" rel="noopener">Buy me a coffee (£3)</a>.</p>
+</section>
+</div>
+</div>
+
+<section aria-labelledby="h-faq" class="no-print">
+<h2 id="h-faq">CIS invoices: common questions</h2>
+<details><summary>Is CIS taken off materials?</summary>
+<p>No. The contractor works out the deduction on the labour part of the invoice only. VAT, materials you bought for the job, plant hire you paid for, fuel (except for travel) and CITB levy are left out. If labour and materials are not shown separately, the contractor may take CIS off the whole amount, so always split them. Keep receipts: the materials figure should be what you actually paid.</p></details>
+<details><summary>What are the CIS rates?</summary>
+<p><b>20%</b> if you are registered for CIS, <b>30%</b> if you are not registered, and <b>0%</b> if HMRC has given you gross payment status. If you are paying 30%, registering as a subcontractor with HMRC usually brings it down to 20%.</p></details>
+<details><summary>When does the reverse charge apply?</summary>
+<p>The domestic reverse charge applies when you are VAT registered, your customer is VAT registered and registered for CIS, the work is standard-rated (20%) or reduced-rated (5%) and reported under CIS, and the customer is not the end user or an intermediary. You show the VAT rate and amount on the invoice but do not charge it. The customer pays it to HMRC instead. The invoice needs wording that makes this clear, such as "Reverse charge: customer to pay the VAT to HMRC".</p>
+<p>It does not apply to zero-rated work, to work for homeowners or other customers who are not VAT and CIS registered, or when the customer has told you they are an end user or intermediary. If the reverse-charge part of an invoice is 5% or less of its total value, HMRC lets you charge VAT normally on the whole invoice.</p></details>
+<details><summary>Does the CIS deduction change the VAT?</summary>
+<p>No. VAT is worked out on the full value before CIS. With normal VAT, the contractor pays you the total plus VAT, less the CIS deduction. With the reverse charge, they pay you the total less the CIS deduction, and deal with the VAT themselves.</p></details>
+<details><summary>Should the CIS deduction be on my invoice?</summary>
+<p>Many subcontractors show it, as this page does, so the amount the contractor will actually pay is clear. The contractor then gives you a payment and deduction statement each month showing what they deducted. Keep those: you claim the deductions back against your tax bill in your Self Assessment return (or, for a limited company, against your PAYE bill).</p></details>
+<details><summary>What must a VAT invoice show?</summary>
+<p>A unique invoice number, the invoice date, the time of supply if different, your name, address and VAT number, the customer's name and address, a description of the work, and for each rate the net amount, the VAT rate and the VAT amount. This page fills those in from what you type.</p></details>
+<details><summary>How is the deduction rounded?</summary>
+<p>HMRC does not set a rounding rule for each deduction, and most contractors round to the nearest penny, as this page does. The contractor's payment and deduction statement shows the figure they actually took.</p></details>
+</section>
+</main>
+<footer>
+<p>Free to use. Not affiliated with HMRC. This is a guide only: check your own position on <a href="https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor" rel="noopener">GOV.UK: CIS for subcontractors</a> and <a href="https://www.gov.uk/guidance/vat-domestic-reverse-charge-for-building-and-construction-services" rel="noopener">GOV.UK: VAT domestic reverse charge</a>, or ask an accountant. Nothing you type leaves your browser.</p>
+<p>Spotted a mistake? <a href="https://github.com/Darko893/darko893.github.io/issues" rel="noopener">Report it here</a>.</p>
+</footer>
+<a href="#invoice-wrap" class="jump no-print" id="jump"><span>Amount due <b id="jump-due">£0.00</b></span><span>See invoice ↓</span></a>
+<script src="cis.js"></script>
+<script src="app.js"></script>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -24,3 +24,7 @@ fonts/OFL-Atkinson.txt
 img/zpgml.webp
 pip-points/index.html
 carers-allowance-earnings/index.html
+cis-invoice/index.html
+cis-invoice/cis.js
+cis-invoice/app.js
+cis-invoice/sitemap.xml
