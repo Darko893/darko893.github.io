@@ -175,7 +175,7 @@ const KEY = "ca-earnings-v1"; let state = "";
 const per = () => document.querySelector("input[name=per]:checked").value;
 const toWeek = (v, p) => p === "w" ? v : p === "f" ? v / 2 : p === "4" ? v / 4 : v * 12 / 52;
 const num = id => { const v = parseFloat(($(id).value || "").replace(/[£,\s]/g, "")); return isFinite(v) && v > 0 ? v : 0; };
-const gbp = n => "£" + n.toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const gbp = n => "£" + (n || 0).toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
 const fields = ["gross", "pension", "tax", "ni", "exp", "care"];
 function load(){ try { const s = JSON.parse(localStorage.getItem(KEY)); if (!s) return; fields.forEach(f => $(f).value = s[f] || ""); $("auto").checked = s.auto !== false; const r = document.querySelector(`input[name=per][value="${s.per}"]`); if (r) r.checked = true; document.querySelectorAll(".el").forEach((c, i) => c.checked = !!(s.el || [])[i]); } catch (e) {} }
 function save(){ try { const s = {per: per(), auto: $("auto").checked, el: [...document.querySelectorAll(".el")].map(c => c.checked)}; fields.forEach(f => s[f] = $(f).value); localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
