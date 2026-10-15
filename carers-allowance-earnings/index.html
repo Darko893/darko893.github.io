@@ -79,18 +79,20 @@ select{width:100%;font:inherit;color:inherit;border:1px solid var(--line);border
 .checks label:has(input:checked){border-color:var(--accent);background:var(--soft)}
 #eligOut{margin-top:12px;font-weight:700}
 .next{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 16px}
-.next a{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--accent);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
-.next a b{display:block;color:var(--gold);font-size:1.1rem}
-.next a p{color:#f1e4ef;font-size:.95rem;margin:4px 0 0}
-.next a .pr{flex:none;background:var(--gold);color:#2a1530;font-weight:700;border-radius:999px;padding:6px 14px}
+.next a{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+.next a:hover{border-color:var(--accent)}
+.next a b{display:block;color:var(--accent);font-size:1rem}
+.next a p{color:var(--muted);font-size:.92rem;margin:4px 0 0}
+.next a .pr{flex:none;color:var(--muted);font-weight:700}
+.from{font-size:.85rem;color:var(--muted);margin:0 0 8px}
 section.info{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 14px}
 section.info details{border-top:1px solid var(--line);padding:10px 0}
 section.info details:first-of-type{border-top:0}
 section.info summary{cursor:pointer;font-weight:700}
 section.info details p{margin:8px 0 0}
 footer{color:var(--muted);font-size:.88rem;padding-top:8px;padding-bottom:28px}
-@media (max-width:600px){h1{font-size:1.6rem}.grid{grid-template-columns:1fr}.verdict{flex-direction:column;align-items:flex-start;gap:10px}.verdict .big{font-size:2.2rem}.next a{flex-direction:column;align-items:flex-start}}
-@media print{body{background:#fff;color:#000}.next,section.info,header .lede{display:none}.card{box-shadow:none}}
+@media (max-width:600px){h1{font-size:1.6rem}.grid{grid-template-columns:1fr}.verdict{flex-direction:column;align-items:flex-start;gap:10px}.verdict .big{font-size:2.2rem}.next a{align-items:flex-start}}
+@media print{body{background:#fff;color:#000}.next,.from,section.info,header .lede{display:none}.card{box-shadow:none}}
 </style>
 <script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -147,6 +149,7 @@ footer{color:var(--muted);font-size:.88rem;padding-top:8px;padding-bottom:28px}
 <p id="eligOut"></p>
 </section>
 
+<p class="from">From the same shop, if it helps:</p>
 <div class="next">
 <a href="https://smallusefulthings.gumroad.com/l/zpdzir"><div><b>What else can carers claim?</b><p>A plain guide to everything a UK carer may be owed in 2026 to 2027: Carer's Allowance, the Universal Credit carer element, Carer's Credit, Pension Credit, council tax and more, with a workbook to fill in as you go.</p></div><span class="pr">£3</span></a>
 </div>
