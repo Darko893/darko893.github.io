@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carer's Allowance Earnings Limit Calculator 2026/27 (£204 a week)</title>
+<meta name="description" content="Free Carer's Allowance earnings calculator for 2026/27. Put in your pay and see your earnings the way the DWP counts them, after tax, NI, half your pension and care costs, against the £204 a week limit. Plus a quick eligibility check.">
+<link rel="canonical" href="https://darko893.github.io/carers-allowance-earnings/">
+<meta property="og:title" content="Carer's Allowance earnings calculator (2026/27)">
+<meta property="og:description" content="Are you under the £204 a week limit? Work out your earnings the way the DWP counts them.">
+<meta property="og:url" content="https://darko893.github.io/carers-allowance-earnings/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233a1d3e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='700' fill='%23f6c638' text-anchor='middle'%3E£%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/atk-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Carer's Allowance earnings calculator","url":"https://darko893.github.io/carers-allowance-earnings/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Works out weekly earnings the way the DWP counts them for Carer's Allowance and compares them with the £204 limit."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the Carer's Allowance earnings limit for 2026/27?","acceptedAnswer":{"@type":"Answer","text":"£204 a week, after income tax, National Insurance and allowed expenses such as half of your pension contributions and some care costs."}},
+{"@type":"Question","name":"What happens if I earn over £204 in a week?","acceptedAnswer":{"@type":"Answer","text":"There is no taper: if your counted earnings are over the limit, you are not entitled to Carer's Allowance for that week, even if you are only a penny over. Tell the Carer's Allowance Unit about changes in your pay straight away to avoid an overpayment."}},
+{"@type":"Question","name":"How is monthly pay turned into weekly earnings?","acceptedAnswer":{"@type":"Answer","text":"Monthly pay is multiplied by 12 and divided by 52. Four-weekly pay is divided by 4 and fortnightly pay by 2."}},
+{"@type":"Question","name":"How much is Carer's Allowance in 2026/27?","acceptedAnswer":{"@type":"Answer","text":"£86.45 a week."}}
+]}]}
+</script>
+<style>
+@font-face{font-family:Atk;src:url(/fonts/atk-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Atk;src:url(/fonts/atk-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{--bg:#f8f3ec;--card:#fffdf9;--ink:#2a1530;--muted:#6c5870;--line:#e7dccf;--accent:#3a1d3e;--accent-ink:#fff;--soft:#f3e9f1;--gold:#f6c638;--gold-soft:#fcefc2;--ok:#1f6b4f;--ok-soft:#dff0e7;--bad:#a1281e;--bad-soft:#fbe2de;--shadow:0 1px 2px rgba(42,21,48,.06),0 6px 18px rgba(42,21,48,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1a0f1c;--card:#251828;--ink:#f3e9f1;--muted:#bba6bd;--line:#3d2a40;--accent:#f6c638;--accent-ink:#2a1530;--soft:#33213a;--gold:#f6c638;--gold-soft:#3d3218;--ok:#7fd8ad;--ok-soft:#173327;--bad:#ff9b8f;--bad-soft:#3d1a17;--shadow:none}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Atk,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header,main,footer{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding-top:28px;padding-bottom:4px}
+.kicker{display:inline-block;background:var(--gold);color:#2a1530;border-radius:999px;padding:2px 12px;font-size:.85rem;font-weight:700;margin-bottom:10px}
+h1{font-size:2rem;line-height:1.15;margin:0 0 10px;letter-spacing:-.01em}
+h2{font-size:1.25rem;line-height:1.25;margin:0 0 12px}
+p{margin:0 0 10px}
+a{color:var(--accent);text-underline-offset:2px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) a{color:var(--gold)}}
+.lede{color:var(--muted);font-size:1.05rem;max-width:62ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;margin:18px 0 14px;box-shadow:var(--shadow)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f label{display:block;font-weight:700;margin-bottom:4px;font-size:.95rem}
+.f small{display:block;color:var(--muted);font-size:.85rem;margin-top:4px;line-height:1.35}
+.money{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;background:var(--bg);min-height:48px;overflow:hidden}
+.money:focus-within{border-color:var(--accent);outline:2px solid var(--gold);outline-offset:1px}
+.money span{padding:0 4px 0 12px;color:var(--muted);font-weight:700}
+.money input{flex:1;min-width:0;border:0;background:transparent;font:inherit;color:inherit;padding:10px 12px 10px 2px;outline:0}
+select{width:100%;font:inherit;color:inherit;border:1px solid var(--line);border-radius:10px;background:var(--bg);min-height:48px;padding:8px 10px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{flex:1;min-width:110px;text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px 8px;cursor:pointer;font-weight:700;font-size:.95rem;background:var(--bg)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.seg label:has(input:focus-visible){outline:2px solid var(--gold)}
+.auto{display:flex;gap:10px;align-items:flex-start;background:var(--soft);border-radius:10px;padding:10px 12px;margin:2px 0 4px;font-size:.95rem;cursor:pointer}
+.auto input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--accent)}
+.result{border:2px solid var(--accent);padding:0;overflow:hidden}
+.verdict{padding:18px 16px;display:flex;gap:14px;align-items:center}
+.verdict .big{font-size:2.4rem;font-weight:700;line-height:1}
+.verdict .big small{display:block;font-size:.9rem;font-weight:400;color:var(--muted);margin-top:6px}
+.verdict .msg{flex:1}
+.verdict .msg b{display:block;font-size:1.15rem}
+.verdict.ok{background:var(--ok-soft)}.verdict.ok .msg b{color:var(--ok)}
+.verdict.bad{background:var(--bad-soft)}.verdict.bad .msg b{color:var(--bad)}
+.meter{height:12px;background:var(--line);border-radius:999px;margin:0 16px 4px;position:relative;overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--ok);border-radius:999px;transition:width .25s}
+.meter.over i{background:var(--bad)}
+.scale{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin:0 16px 12px}
+.sum{padding:4px 16px 16px}
+.sum table{width:100%;border-collapse:collapse;font-size:.95rem}
+.sum td{padding:7px 0;border-bottom:1px solid var(--line)}
+.sum td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:10px}
+.sum tr.tot td{font-weight:700;border-bottom:0;border-top:2px solid var(--ink)}
+.tip{background:var(--gold-soft);border-radius:10px;padding:10px 12px;font-size:.95rem;margin:0 16px 16px}
+.checks{display:grid;gap:8px;margin:0}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--bg);font-size:.95rem}
+.checks input{width:20px;height:20px;flex:none;margin:2px 0 0;accent-color:var(--accent)}
+.checks label:has(input:checked){border-color:var(--accent);background:var(--soft)}
+#eligOut{margin-top:12px;font-weight:700}
+.next{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 16px}
+.next a{display:flex;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:var(--accent);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.next a b{display:block;color:var(--gold);font-size:1.1rem}
+.next a p{color:#f1e4ef;font-size:.95rem;margin:4px 0 0}
+.next a .pr{flex:none;background:var(--gold);color:#2a1530;font-weight:700;border-radius:999px;padding:6px 14px}
+section.info{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 14px}
+section.info details{border-top:1px solid var(--line);padding:10px 0}
+section.info details:first-of-type{border-top:0}
+section.info summary{cursor:pointer;font-weight:700}
+section.info details p{margin:8px 0 0}
+footer{color:var(--muted);font-size:.88rem;padding-top:8px;padding-bottom:28px}
+@media (max-width:600px){h1{font-size:1.6rem}.grid{grid-template-columns:1fr}.verdict{flex-direction:column;align-items:flex-start;gap:10px}.verdict .big{font-size:2.2rem}.next a{flex-direction:column;align-items:flex-start}}
+@media print{body{background:#fff;color:#000}.next,section.info,header .lede{display:none}.card{box-shadow:none}}
+</style>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header>
+<span class="kicker">Free · 2026/27 · £204 limit</span>
+<h1>Carer's Allowance earnings calculator</h1>
+<p class="lede">Carer's Allowance stops in any week your earnings go over £204, even by a penny. Put in your pay and see your earnings the way the DWP counts them: after tax, National Insurance, half your pension and some care costs. Nothing you type leaves this page.</p>
+</header>
+
+<main>
+<section class="card" aria-labelledby="h-pay">
+<h2 id="h-pay">Your pay</h2>
+<div class="f" style="margin-bottom:14px"><label id="l-per">How often are you paid?</label>
+<div class="seg" role="radiogroup" aria-labelledby="l-per">
+<label><input type="radio" name="per" value="w" checked>Weekly</label>
+<label><input type="radio" name="per" value="f">Every 2 weeks</label>
+<label><input type="radio" name="per" value="4">Every 4 weeks</label>
+<label><input type="radio" name="per" value="m">Monthly</label>
+</div></div>
+<div class="grid">
+<div class="f"><label for="gross">Gross pay <span class="per">a week</span></label><div class="money"><span>£</span><input id="gross" inputmode="decimal" placeholder="0.00" autocomplete="off"></div><small>Before anything is taken off. On your payslip as gross or total pay.</small></div>
+<div class="f"><label for="pension">Your pension contributions <span class="per">a week</span></label><div class="money"><span>£</span><input id="pension" inputmode="decimal" placeholder="0.00" autocomplete="off"></div><small>What you pay in, not your employer. Half of it is taken off.</small></div>
+</div>
+<label class="auto"><input type="checkbox" id="auto" checked><span>Estimate my tax and National Insurance for me (a normal 1257L tax code, one job). Untick to type them from your payslip.</span></label>
+<div class="grid" id="manual" hidden>
+<div class="f"><label for="tax">Income tax <span class="per">a week</span></label><div class="money"><span>£</span><input id="tax" inputmode="decimal" placeholder="0.00" autocomplete="off"></div></div>
+<div class="f"><label for="ni">National Insurance <span class="per">a week</span></label><div class="money"><span>£</span><input id="ni" inputmode="decimal" placeholder="0.00" autocomplete="off"></div></div>
+</div>
+<div class="grid" style="margin-top:14px">
+<div class="f"><label for="exp">Work expenses <span class="per">a week</span></label><div class="money"><span>£</span><input id="exp" inputmode="decimal" placeholder="0.00" autocomplete="off"></div><small>Things you need to do the job and pay for yourself, like specialist clothing or equipment.</small></div>
+<div class="f"><label for="care">Paid care while you work <span class="per">a week</span></label><div class="money"><span>£</span><input id="care" inputmode="decimal" placeholder="0.00" autocomplete="off"></div><small>For someone to look after the person you care for, or your children, while you're at work. Not paid to a close relative. Up to half your net pay counts.</small></div>
+</div>
+</section>
+
+<section class="card result" aria-live="polite">
+<div class="verdict" id="verdict"><div class="big" id="counted">£0.00<small>counted a week</small></div><div class="msg"><b id="vTitle">Put in your pay</b><span id="vText">Your earnings will be checked against the £204 a week limit.</span></div></div>
+<div class="meter" id="meter"><i id="bar" style="width:0"></i></div>
+<div class="scale"><span>£0</span><span>Limit £204</span></div>
+<div class="tip" id="tip" hidden></div>
+<div class="sum"><table id="sum"></table></div>
+</section>
+
+<section class="card" aria-labelledby="h-elig">
+<h2 id="h-elig">The other rules</h2>
+<p>Earnings are only one test. Tick each one that's true.</p>
+<div class="checks">
+<label><input type="checkbox" class="el">I'm 16 or over</label>
+<label><input type="checkbox" class="el">I spend at least 35 hours a week caring for them</label>
+<label><input type="checkbox" class="el">They get a qualifying benefit: PIP daily living, Attendance Allowance, DLA middle or highest care, Adult or Pension Age Disability Payment, Child Disability Payment middle or highest care, Armed Forces Independence Payment, or Constant Attendance Allowance</label>
+<label><input type="checkbox" class="el">I'm not in full-time education or studying 21 hours a week or more</label>
+<label><input type="checkbox" class="el">I live in England or Wales and have done for at least 2 of the last 3 years (Northern Ireland has its own office with the same rules; in Scotland it's Carer Support Payment)</label>
+</div>
+<p id="eligOut"></p>
+</section>
+
+<div class="next">
+<a href="https://6149728987361.gumroad.com/l/zpdzir"><div><b>What else can carers claim?</b><p>A plain guide to everything a UK carer may be owed in 2026 to 2027: Carer's Allowance, the Universal Credit carer element, Carer's Credit, Pension Credit, council tax and more, with a workbook to fill in as you go.</p></div><span class="pr">£3</span></a>
+</div>
+
+<section class="info" aria-labelledby="h-faq">
+<h2 id="h-faq">How the earnings limit works</h2>
+<details open><summary>What counts towards the £204?</summary><p>Your earnings from a job or self-employment after income tax, National Insurance and allowed expenses. Half of what you pay into a pension is taken off, as are work expenses you need for the job, and paid care costs while you work up to half of your net pay. Occupational and private pensions you receive don't count as earnings.</p></details>
+<details><summary>What if I go over in one week?</summary><p>There is no sliding scale. If your counted earnings are over £204, you get no Carer's Allowance for that week, £86.45 lost even if you were a penny over. The government asked for views on a taper in 2026, but for now the cliff edge is still the rule. If your pay goes up, tell the Carer's Allowance Unit straight away, because overpayments are claimed back.</p></details>
+<details><summary>I'm paid monthly. How is that turned into weekly?</summary><p>Monthly pay is multiplied by 12 and divided by 52. Four-weekly pay is divided by 4 and fortnightly pay by 2. If your hours change from week to week, the DWP may look at your earnings over a longer period, so ask them how they'll treat your pay.</p></details>
+<details><summary>What about the old overpayments?</summary><p>After an independent review, the DWP is looking again at overpayments caused by how it averaged earnings between April 2015 and September 2025. You don't need to apply; it will contact you if it needs more information.</p></details>
+<details><summary>How much is Carer's Allowance?</summary><p>£86.45 a week in 2026/27. In Scotland, Carer Support Payment has replaced it for new claims, at the same rate and with the same £204 limit.</p></details>
+<details><summary>How is the tax estimate worked out?</summary><p>For one job on the standard 1257L code: income tax at 20% on weekly pay above £241.73, and National Insurance at 8% on weekly pay above £242. Real payslips can differ, especially in the first weeks of a tax year, with a different code or more than one job, so use your payslip if you have it. Self-employed? Untick the estimate and put in your own figures.</p></details>
+</section>
+</main>
+
+<footer>
+<p>Figures from <a href="https://www.gov.uk/carers-allowance/eligibility">GOV.UK Carer's Allowance eligibility</a> and <a href="https://www.gov.uk/carers-allowance">GOV.UK Carer's Allowance</a>, checked October 2026. Contains public sector information licensed under the Open Government Licence v3.0.</p>
+<p>This page is not from the DWP and is not advice. For free one-to-one help, try Carers UK or Citizens Advice.</p>
+<p><a href="/">Small useful things</a>: printables and free tools, made in the UK. Also free: <a href="/pip-points/">PIP points calculator</a>. Something wrong? <a href="https://github.com/Darko893/darko893.github.io/issues">Tell me here</a>.</p>
+</footer>
+
+<script>
+const LIMIT = 204, CA = 86.45, PA_W = 12570 / 52, PT_W = 242;
+const $ = id => document.getElementById(id);
+const KEY = "ca-earnings-v1"; let state = "";
+const per = () => document.querySelector("input[name=per]:checked").value;
+const toWeek = (v, p) => p === "w" ? v : p === "f" ? v / 2 : p === "4" ? v / 4 : v * 12 / 52;
+const num = id => { const v = parseFloat(($(id).value || "").replace(/[£,\s]/g, "")); return isFinite(v) && v > 0 ? v : 0; };
+const gbp = n => "£" + n.toLocaleString("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const fields = ["gross", "pension", "tax", "ni", "exp", "care"];
+function load(){ try { const s = JSON.parse(localStorage.getItem(KEY)); if (!s) return; fields.forEach(f => $(f).value = s[f] || ""); $("auto").checked = s.auto !== false; const r = document.querySelector(`input[name=per][value="${s.per}"]`); if (r) r.checked = true; document.querySelectorAll(".el").forEach((c, i) => c.checked = !!(s.el || [])[i]); } catch (e) {} }
+function save(){ try { const s = {per: per(), auto: $("auto").checked, el: [...document.querySelectorAll(".el")].map(c => c.checked)}; fields.forEach(f => s[f] = $(f).value); localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+function calc(){
+  const p = per(), w = v => toWeek(v, p);
+  const words = {w: "a week", f: "every 2 weeks", "4": "every 4 weeks", m: "a month"}[p];
+  document.querySelectorAll(".per").forEach(s => s.textContent = words);
+  $("manual").hidden = $("auto").checked;
+  const gross = w(num("gross"));
+  const tax = $("auto").checked ? Math.max(0, gross - PA_W) * 0.20 : w(num("tax"));
+  const ni = $("auto").checked ? Math.max(0, gross - PT_W) * 0.08 : w(num("ni"));
+  const pens = w(num("pension")) / 2, exp = w(num("exp"));
+  const net = Math.max(0, gross - tax - ni);
+  const care = Math.min(w(num("care")), net / 2);
+  const counted = Math.max(0, gross - tax - ni - pens - exp - care);
+  const rows = [["Gross pay a week", gross], [($("auto").checked ? "Income tax (estimate)" : "Income tax"), -tax], [($("auto").checked ? "National Insurance (estimate)" : "National Insurance"), -ni]];
+  if (pens) rows.push(["Half your pension contributions", -pens]);
+  if (exp) rows.push(["Work expenses", -exp]);
+  if (care) rows.push([care < w(num("care")) ? "Care costs (capped at half your net pay)" : "Care costs", -care]);
+  $("sum").innerHTML = gross ? rows.map(([t, v]) => `<tr><td>${t}</td><td>${v < 0 ? "− " + gbp(-v) : gbp(v)}</td></tr>`).join("") + `<tr class="tot"><td>Counted earnings a week</td><td>${gbp(counted)}</td></tr>` : "";
+  $("counted").firstChild.textContent = gbp(counted);
+  const v = $("verdict"), over = counted > LIMIT, tip = $("tip"); state = gross ? (over ? "over" : "under") : "";
+  $("bar").style.width = Math.min(100, counted / LIMIT * 100) + "%"; $("meter").classList.toggle("over", over);
+  if (!gross) { v.className = "verdict"; $("vTitle").textContent = "Put in your pay"; $("vText").textContent = "Your earnings will be checked against the £204 a week limit."; tip.hidden = true; }
+  else if (!over) {
+    v.className = "verdict ok"; $("vTitle").textContent = `Under the limit by ${gbp(LIMIT - counted)}`;
+    $("vText").textContent = `On these figures your earnings don't stop Carer's Allowance (${gbp(CA)} a week), as long as you meet the other rules below.`;
+    const room = LIMIT - counted;
+    tip.hidden = room > 25; tip.textContent = `Close to the line: ${gbp(room)} a week of extra counted earnings would take you over. A pay rise, overtime or a bonus week could do it, so tell the Carer's Allowance Unit when your pay changes.`;
+  } else {
+    v.className = "verdict bad"; $("vTitle").textContent = `Over the limit by ${gbp(counted - LIMIT)}`;
+    $("vText").textContent = `In a week like this you wouldn't get Carer's Allowance, losing ${gbp(CA)}.`;
+    const gap = counted - LIMIT;
+    tip.hidden = false; tip.textContent = gap <= 60 ? `You're ${gbp(gap)} over. Paying more into a workplace pension lowers counted earnings by half of each extra pound, and paid care while you work can count too. Check before changing anything.` : "Worth knowing: you may still be able to claim the carer element of Universal Credit or Carer's Credit, which don't use this limit.";
+  }
+  save();
+}
+function elig(){
+  const c = [...document.querySelectorAll(".el")], n = c.filter(x => x.checked).length;
+  $("eligOut").textContent = n === c.length ? (state === "over" ? "You meet these rules, but the earnings above are over the limit for a week like that." : state === "under" ? "You meet these rules and your earnings are under the limit: it's worth claiming." : "You meet these rules. Now check your earnings above.") : n ? `${c.length - n} still to tick. All of them need to be true.` : "";
+  save();
+}
+load();
+document.querySelectorAll("input").forEach(i => i.addEventListener("input", () => { calc(); elig(); }));
+document.querySelectorAll("input[type=radio],input[type=checkbox]").forEach(i => i.addEventListener("change", () => { calc(); elig(); }));
+calc(); elig();
+</script>
+</body>
+</html>
