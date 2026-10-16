@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oil Tank Calculator: How Much Heating Oil Is Left and When to Order</title>
+<meta name="description" content="Free heating oil tank calculator. Turn a dipstick reading or gauge into litres (round tanks aren't a straight line), see how many days your oil will last through winter, the date to order by and how much to order. Prints a dipstick chart for your tank.">
+<link rel="canonical" href="https://darko893.github.io/oil-tank/">
+<meta property="og:title" content="Oil tank calculator">
+<meta property="og:description" content="Dipstick to litres, days of heating oil left, order-by date and how much to order. Free, no sign-up.">
+<meta property="og:url" content="https://darko893.github.io/oil-tank/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1f4e5f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f4e5f'/%3E%3Cpath d='M16 6c4 6 7 9.5 7 13a7 7 0 0 1-14 0c0-3.5 3-7 7-13z' fill='white'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Oil tank calculator","url":"https://darko893.github.io/oil-tank/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Turns a heating oil tank dipstick or gauge reading into litres, estimates how many days the oil will last with winter use, gives an order-by date and how much to order, and prints a dipstick chart."}
+</script>
+<script type="application/ld+json" id="faq-ld">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I work out how much oil is in my tank?","acceptedAnswer":{"@type":"Answer","text":"Push a clean stick straight down through the filler to the bottom, pull it out and measure the wet part in cm. If the tank has flat sides, the share of the tank that is full is the oil depth divided by the inside height. If it is round or oval and lying on its side it is not a straight line: a quarter of the way up it holds about 20%, half way 50%, three quarters about 80%. The calculator does this sum for you."}},
+{"@type":"Question","name":"How long will 1,000 litres of heating oil last?","acceptedAnswer":{"@type":"Answer","text":"It depends on the home and the time of year. For a home that uses 2,000 litres a year, 1,000 litres bought on 1 November lasts about 120 days in this calculator's seasonal model, because winter months burn several times more than summer ones. The same 1,000 litres from 1 May lasts about 236 days."}},
+{"@type":"Question","name":"How much heating oil does a house use in a year?","acceptedAnswer":{"@type":"Answer","text":"Most UK households use between about 1,500 and 3,000 litres a year, and winter use can be up to four times summer use. The best figure for your home is the total litres delivered over the last twelve months."}},
+{"@type":"Question","name":"When should I order heating oil?","acceptedAnswer":{"@type":"Answer","text":"Order before the tank gets low rather than when it runs dry. Delivery can take a week or more in a cold snap, and running the tank dry can draw sludge into the pipe and leave air in the boiler's fuel line. The calculator gives an order-by date that allows for your delivery time and the level you want to keep in reserve."}},
+{"@type":"Question","name":"How much oil should I order to fill my tank?","acceptedAnswer":{"@type":"Answer","text":"Order the space between what is in the tank now and the level your supplier will fill to, which is usually a little under the brim, then round down. Many suppliers have a minimum order, often around 500 litres. The calculator rounds the top-up down to the nearest 50 litres."}}
+]}
+</script>
+<style>
+:root{--bg:#eef2f3;--card:#fff;--ink:#14232a;--muted:#55666e;--line:#d3dde1;--accent:#1f4e5f;--accent-ink:#fff;--soft:#e3ecef;--good:#1d6b45;--warn:#7a4a00;--warn-bg:#fff3dc;--bad:#9b1c1c;--oil:#c98a1b;--empty:#dfe7ea}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1719;--card:#172226;--ink:#e6eef0;--muted:#9fb2b8;--line:#2c3c42;--accent:#7cc4dc;--accent-ink:#082028;--soft:#1d2b30;--good:#7fd3a3;--warn:#ffcf7a;--warn-bg:#33270f;--bad:#ff9a9a;--oil:#e0a83a;--empty:#26363c}}
+:root[data-theme="dark"]{--bg:#0f1719;--card:#172226;--ink:#e6eef0;--muted:#9fb2b8;--line:#2c3c42;--accent:#7cc4dc;--accent-ink:#082028;--soft:#1d2b30;--good:#7fd3a3;--warn:#ffcf7a;--warn-bg:#33270f;--bad:#ff9a9a;--oil:#e0a83a;--empty:#26363c}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main,header,footer{max-width:1120px;margin:0 auto;padding:0 16px}
+header{padding-top:22px}
+h1{font-size:2rem;line-height:1.1;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:1.25rem;margin:0 0 12px}
+h3{font-size:1.05rem;margin:16px 0 6px}
+p{margin:0 0 10px}
+a{color:var(--accent)}
+.lede{color:var(--muted);margin-bottom:16px;max-width:760px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;margin:0 0 16px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 16px}
+@media (min-width:980px){.layout{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}.out-col{position:sticky;top:12px;align-self:start;max-height:calc(100vh - 24px);overflow:auto}}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+.full{grid-column:1/-1}
+label{font-weight:600;display:block;margin-bottom:4px;font-size:.95rem}
+.hint{font-weight:400;color:var(--muted);font-size:.85rem}
+input,select,button,textarea{font:inherit;color:inherit}
+input[type=number],input[type=text],input[type=date],select,textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);min-height:44px}
+textarea{min-height:110px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.unit{display:grid;grid-template-columns:minmax(0,1fr) 6.2em;gap:6px}
+@media (max-width:520px){#dims{grid-template-columns:minmax(0,1fr)}}
+button{cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:8px 14px;min-height:44px}
+button.ghost{background:transparent;color:var(--accent)}
+button.small{min-height:36px;padding:4px 10px;font-size:.88rem}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.check{display:flex;gap:8px;align-items:center;font-weight:400;min-height:44px;margin:0}
+.check input{width:20px;height:20px;flex:none}
+.shapes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:560px){.shapes{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.shapes label{border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center;font-weight:600;font-size:.88rem;cursor:pointer;margin:0;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:44px}
+.shapes input{position:absolute;opacity:0;pointer-events:none}
+.shapes label:has(input:checked){border-color:var(--accent);background:var(--soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.shapes label:has(input:focus-visible){outline:2px solid var(--accent)}
+.shapes svg{width:64px;height:40px}
+.shapes svg *{fill:none;stroke:currentColor;stroke-width:2}
+.msgs{margin:0 0 12px;padding:0;list-style:none}
+.msgs li{background:var(--warn-bg);color:var(--warn);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:.92rem}
+.big{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center;margin-bottom:12px}
+.gauge{width:72px;height:96px;border:2px solid var(--ink);border-radius:10px;overflow:hidden;position:relative;background:var(--empty)}
+.gauge i{position:absolute;left:0;right:0;bottom:0;background:var(--oil)}
+.gauge b{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:.95rem;color:var(--ink);text-shadow:0 0 3px var(--card)}
+.headline{font-size:1.45rem;font-weight:700;line-height:1.2;margin:0 0 4px;font-variant-numeric:tabular-nums}
+.sub{color:var(--muted);margin:0}
+.facts{list-style:none;margin:0 0 12px;padding:0;border-top:1px solid var(--line)}
+.facts li{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.facts .k{color:var(--muted);font-size:.92rem}
+.facts .v{font-weight:600;font-variant-numeric:tabular-nums}
+.facts .v small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.facts li.alert .v{color:var(--bad)}
+.facts li.okay .v{color:var(--good)}
+table{border-collapse:collapse;font-size:.92rem;font-variant-numeric:tabular-nums;width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+th{font-weight:600;color:var(--muted)}
+td.n,th.n{text-align:right}
+.bar{display:block;height:8px;border-radius:4px;background:var(--oil);min-width:2px}
+.log{list-style:none;margin:8px 0 0;padding:0}
+.log li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:4px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.empty{color:var(--muted)}
+.dip{columns:2;column-gap:24px}
+@media (min-width:560px){.dip{columns:3}}
+.dip table{break-inside:avoid}
+details summary{cursor:pointer;font-weight:600;min-height:32px}
+.hidden{display:none!important}
+.faq h3{margin-top:16px}
+.tip{display:none}
+footer{color:var(--muted);font-size:.88rem;padding-bottom:28px}
+.print-title{display:none}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;color:#000;font-size:11pt}
+  header,footer,.in-col,.faq,.btns,#out-main,.no-print,.tip{display:none!important}
+  main,section{border:0;padding:0;margin:0;max-width:none}
+  .layout{display:block}
+  .out-col{position:static;max-height:none;overflow:visible}
+  .print-title{display:block;font-size:16pt;margin:0 0 6px}
+  #dip-sec{display:block!important}
+  .dip{columns:3}
+  .dip table{font-size:12pt}
+  #dip-note{font-size:11pt;color:#000}
+  th,td{border-color:#999;padding:2px 6px}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Oil tank calculator</h1>
+  <p class="lede">How much heating oil is left, how long it will last as the weather gets colder, when to order and how much. Dip the tank or read the gauge, fill in the boxes, and print a dipstick chart for next time. Free; nothing leaves your device.</p>
+</header>
+<main>
+<div class="layout">
+<div class="in-col">
+  <section aria-labelledby="h-tank">
+    <h2 id="h-tank">1. Your tank</h2>
+    <fieldset style="border:0;padding:0;margin:0 0 12px">
+      <legend class="hint" style="margin-bottom:6px">Shape of the tank (the inner tank if it is bunded)</legend>
+      <div class="shapes" id="shapes">
+        <label><input type="radio" name="shape" value="hcyl" checked><svg viewBox="0 0 64 40" aria-hidden="true"><rect x="4" y="6" width="56" height="28" rx="14"/></svg>Round or oval, lying down</label>
+        <label><input type="radio" name="shape" value="rect"><svg viewBox="0 0 64 40" aria-hidden="true"><rect x="6" y="6" width="52" height="28" rx="2"/></svg>Flat sides (box, slimline)</label>
+        <label><input type="radio" name="shape" value="vcyl"><svg viewBox="0 0 64 40" aria-hidden="true"><ellipse cx="32" cy="7" rx="13" ry="4"/><path d="M19 7v26M45 7v26M19 33a13 4 0 0 0 26 0"/></svg>Round, standing up</label>
+        <label><input type="radio" name="shape" value="chart"><svg viewBox="0 0 64 40" aria-hidden="true"><path d="M8 34h48M8 34V6M8 30l12-6 12-8 12-6 12-2"/></svg>I have the maker&rsquo;s chart</label>
+      </div>
+    </fieldset>
+    <div class="grid2" id="dims">
+      <div>
+        <label for="f-cap">Capacity</label>
+        <div class="unit"><input type="number" id="f-cap" inputmode="decimal" min="0" step="any" value="1200"><select id="f-capunit" aria-label="Capacity unit"><option value="L">litres</option><option value="gal">gallons</option></select></div>
+      </div>
+      <div>
+        <label for="f-height">Inside height</label>
+        <div class="unit"><input type="number" id="f-height" inputmode="decimal" min="0" step="any" value="110"><select id="f-hunit" aria-label="Height unit"><option value="cm">cm</option><option value="in">inches</option></select></div>
+      </div>
+      <p class="hint full">Capacity is on the label or the maker&rsquo;s sheet (1,000, 1,200, 1,300 and 2,500 litres are common). Inside height is how deep the oil would be if the tank were brim full: push the stick to the bottom and mark the inside of the top (on a bunded tank, the inner tank&rsquo;s top), or use the maker&rsquo;s sheet.</p>
+    </div>
+    <div id="chartbox" class="hidden">
+      <label for="f-points">Your tank&rsquo;s chart <span class="hint">one line each: depth, then litres (e.g. <code>40 380</code>)</span></label>
+      <textarea id="f-points" spellcheck="false" placeholder="0 0&#10;20 150&#10;40 380&#10;60 640&#10;80 900&#10;100 1110&#10;110 1200"></textarea>
+      <p class="hint">Depths use the unit picked under inside height. The deepest line is taken as full.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-read">
+    <h2 id="h-read">2. Today&rsquo;s reading</h2>
+    <div class="grid2">
+      <div>
+        <label for="f-kind">What you read</label>
+        <select id="f-kind"><option value="depth">Dipstick depth</option><option value="percent">Gauge (% full)</option><option value="litres">Litres (monitor or gauge)</option></select>
+      </div>
+      <div>
+        <label for="f-val" id="l-val">Depth of oil (cm)</label>
+        <input type="number" id="f-val" inputmode="decimal" min="0" step="any" value="50">
+      </div>
+      <div>
+        <label for="f-date">Date</label>
+        <input type="date" id="f-date">
+      </div>
+      <div style="align-self:end">
+        <button type="button" class="ghost" id="b-log" style="width:100%">Save to my readings</button>
+      </div>
+    </div>
+    <div id="logbox">
+      <ul class="log" id="log"></ul>
+      <p class="hint" id="log-note">Save a reading every week or two (not just after a delivery) and the calculator uses your own rate instead of the estimate below.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-use">
+    <h2 id="h-use">3. How much you use</h2>
+    <div class="grid2">
+      <div>
+        <label for="f-annual">Litres a year</label>
+        <input type="number" id="f-annual" inputmode="decimal" min="0" step="any" value="2000">
+      </div>
+      <div>
+        <label for="f-src">Use</label>
+        <select id="f-src"><option value="auto">My readings if I have them</option><option value="annual">The litres a year figure</option></select>
+      </div>
+      <p class="hint full" id="use-note">Best figure: add up the litres delivered over the last 12 months. Most homes use about 1,500 to 3,000 litres a year. The calculator spreads it over the year with winter months using about four times as much as summer ones.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-order">
+    <h2 id="h-order">4. Ordering</h2>
+    <div class="grid2">
+      <div>
+        <label for="f-reserve">Order when it&rsquo;s down to <span class="hint">% of tank</span></label>
+        <input type="number" id="f-reserve" inputmode="decimal" min="0" max="100" step="any" value="25">
+      </div>
+      <div>
+        <label for="f-lead">Delivery takes <span class="hint">days</span></label>
+        <input type="number" id="f-lead" inputmode="numeric" min="0" step="1" value="7">
+      </div>
+      <div>
+        <label for="f-fill">Supplier fills to <span class="hint">% of tank</span></label>
+        <input type="number" id="f-fill" inputmode="decimal" min="0" max="100" step="any" value="90">
+      </div>
+      <div>
+        <label for="f-min">Minimum order <span class="hint">litres</span></label>
+        <input type="number" id="f-min" inputmode="numeric" min="0" step="1" value="500">
+      </div>
+      <div>
+        <label for="f-price">Price <span class="hint">pence per litre, optional</span></label>
+        <input type="number" id="f-price" inputmode="decimal" min="0" step="any" placeholder="e.g. 62">
+      </div>
+      <div>
+        <label for="f-outlet">Oil below the outlet <span class="hint">cm, can&rsquo;t be used</span></label>
+        <input type="number" id="f-outlet" inputmode="decimal" min="0" step="any" value="5">
+      </div>
+    </div>
+    <div class="btns"><button type="button" class="ghost" id="b-reset">Start again</button></div>
+  </section>
+</div>
+
+<div class="out-col">
+  <section aria-labelledby="h-out" id="out-main" aria-live="polite">
+    <h2 id="h-out">Your oil</h2>
+    <ul class="msgs" id="msgs"></ul>
+    <div class="big" id="bigbox">
+      <div class="gauge" aria-hidden="true"><i id="g-fill"></i><b id="g-pct"></b></div>
+      <div><p class="headline" id="headline"></p><p class="sub" id="sub"></p></div>
+    </div>
+    <ul class="facts" id="facts"></ul>
+    <div id="months-box">
+      <h3>Expected level on the 1st of each month</h3>
+      <table id="months"><thead><tr><th>Date</th><th class="n">Litres</th><th style="width:40%"><span class="hidden">Level</span></th></tr></thead><tbody></tbody></table>
+      <p class="hint">An estimate from your usage, assuming an ordinary winter and no delivery.</p>
+    </div>
+    <p class="tip" id="tip"><a id="tip-link" href="#" rel="noopener">Found it useful? Buy me a cuppa (&pound;3)</a></p>
+  </section>
+
+  <section aria-labelledby="h-dip" id="dip-sec">
+    <h2 class="print-title" id="print-title">Dipstick chart</h2>
+    <h2 id="h-dip" class="no-print">Dipstick chart for your tank</h2>
+    <div class="grid2 no-print" style="margin-bottom:10px">
+      <div><label for="f-step">Every</label><select id="f-step"><option value="1">1 cm / 1 in</option><option value="2">2 cm / 2 in</option><option value="5" selected>5 cm / 5 in</option></select></div>
+      <div style="align-self:end"><button type="button" id="b-print" style="width:100%">Print or save as PDF</button></div>
+    </div>
+    <p class="hint" id="dip-note"></p>
+    <div class="dip" id="dip"></div>
+  </section>
+</div>
+</div>
+
+<section class="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">Questions</h2>
+  <h3>How do I work out how much oil is in my tank?</h3>
+  <p>Push a clean stick straight down through the filler to the bottom, pull it out and measure the wet part in cm. If the tank has flat sides, the share of the tank that is full is the oil depth divided by the inside height. If it is round or oval and lying on its side it is not a straight line: a quarter of the way up it holds about 20%, half way 50%, three quarters about 80%. The calculator does this sum for you.</p>
+  <table id="round-table"><caption class="hint" style="text-align:left;caption-side:bottom;padding-top:6px">Round or oval tank lying down: share of capacity by share of height.</caption><thead><tr><th>Depth (share of height)</th><th class="n">Oil (share of capacity)</th></tr></thead><tbody>
+<tr><td>10%</td><td class="n">5%</td></tr>
+<tr><td>20%</td><td class="n">14%</td></tr>
+<tr><td>25%</td><td class="n">20%</td></tr>
+<tr><td>30%</td><td class="n">25%</td></tr>
+<tr><td>40%</td><td class="n">37%</td></tr>
+<tr><td>50%</td><td class="n">50%</td></tr>
+<tr><td>60%</td><td class="n">63%</td></tr>
+<tr><td>70%</td><td class="n">75%</td></tr>
+<tr><td>75%</td><td class="n">80%</td></tr>
+<tr><td>80%</td><td class="n">86%</td></tr>
+<tr><td>90%</td><td class="n">95%</td></tr>
+  </tbody></table>
+  <h3>How long will 1,000 litres of heating oil last?</h3>
+  <p>It depends on the home and the time of year. For a home that uses 2,000 litres a year, 1,000 litres bought on 1 November lasts about 120 days in this calculator&rsquo;s seasonal model, because winter months burn several times more than summer ones. The same 1,000 litres from 1 May lasts about 236 days.</p>
+  <table id="last-table"><thead><tr><th>Uses a year</th><th class="n">500 L from 1 Nov</th><th class="n">1,000 L from 1 Nov</th><th class="n">1,000 L from 1 May</th></tr></thead><tbody>
+<tr><td>1,500 L</td><td class="n">82 days</td><td class="n">168 days</td><td class="n">274 days</td></tr>
+<tr><td>2,000 L</td><td class="n">63 days</td><td class="n">120 days</td><td class="n">236 days</td></tr>
+<tr><td>2,500 L</td><td class="n">51 days</td><td class="n">97 days</td><td class="n">213 days</td></tr>
+<tr><td>3,000 L</td><td class="n">43 days</td><td class="n">82 days</td><td class="n">194 days</td></tr>
+  </tbody></table>
+  <h3>How much heating oil does a house use in a year?</h3>
+  <p>Most UK households use between about 1,500 and 3,000 litres a year, and winter use can be up to four times summer use. The best figure for your home is the total litres delivered over the last twelve months.</p>
+  <h3>When should I order heating oil?</h3>
+  <p>Order before the tank gets low rather than when it runs dry. Delivery can take a week or more in a cold snap, and running the tank dry can draw sludge into the pipe and leave air in the boiler&rsquo;s fuel line. The calculator gives an order-by date that allows for your delivery time and the level you want to keep in reserve.</p>
+  <h3>How much oil should I order to fill my tank?</h3>
+  <p>Order the space between what is in the tank now and the level your supplier will fill to, which is usually a little under the brim, then round down. Many suppliers have a minimum order, often around 500 litres. The calculator rounds the top-up down to the nearest 50 litres.</p>
+  <h3>Is it accurate?</h3>
+  <p>As accurate as the measurements. Real tanks have rounded corners, ribs and baffles, so a shape-based answer can be a few percent out; the maker&rsquo;s chart, if you can get it, is better (pick &ldquo;I have the maker&rsquo;s chart&rdquo;). Usage is a seasonal estimate: a cold January burns more. Saving a reading every week or two gives you your own rate.</p>
+  <h3>Where is my data kept?</h3>
+  <p>Only in this browser on this device. There are no accounts and nothing is sent anywhere.</p>
+</section>
+</main>
+<footer>
+  <p>Not affiliated with any oil supplier or tank maker. Figures are estimates; check with your supplier before relying on them. Problems or ideas: <a href="https://github.com/Darko893/darko893.github.io/issues">report them here</a>.</p>
+</footer>
+<script src="tank.js"></script>
+<script src="app.js"></script>
+<script data-goatcounter="https://dark893.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
